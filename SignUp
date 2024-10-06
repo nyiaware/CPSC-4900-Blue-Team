@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/page2.css">
+</head>
+<title>SignUp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<body>
+    <h1> AutoTune</h1>
+
+    <a href="https://accounts.google.com" target=_blank>
+        <button>Sign up with Google</button>
+    </a>
+
+    <br>
+    <br>
+
+    <a href="https://www.facebook.com" target=_blank>
+        <button>Sign up with Facebook</button>
+    </a>
+    <br>
+    <br>
+
+    <form>
+
+        <label for="email">Sign up with email</label>
+        <br>
+        <input type="email" id="email" name="email" placeholder="abc123@gmail.com">
+        <script>
+            function validateEmail(){
+                const emailInput=
+                document.getElementById('email').value;
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!regex.test(emailInput)){
+                    alert('Please enter a valid email address.');
+                    return false;
+                }
+                return true;
+            }
+        </script>
+        <br>
+
+        <br>
+
+        <label for="confirmemail">Confirm email</label>
+        <br>
+        <input type="email" id="comfirmemail" name="confirmemail" placeholder="abc123@gmail.com">
+
+        <br>
+        <br>
+
+        <label for="password">Create a password</label>
+        <br>
+        <input type="password" id="password" name="password" minlength="8" require placeholder="password">
+        <br>
+        <br>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+
+</body>
+</html>
