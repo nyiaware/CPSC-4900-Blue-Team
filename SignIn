@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+    <title>SignIn</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<body>
+    <h1>AutoTune</h1>
+    <a href="https://accounts.google.com" target=_blank>
+        <button style="border-radius: 25px; font-size: 15px;">Sign in with Google</button>
+    </a>
+
+    <br>
+    <br>
+
+    <a href="https://appleid.apple.com" target=_blank>
+        <button style="border-radius: 25px; font-size: 15px;">Sign in with Apple</button>
+    </a>
+
+    <br>
+    <br>
+
+    <a href="https://www.facebook.com" target=_blank>
+        <button style="border-radius: 25px; font-size: 15px;">Sign in with Facebook</button>
+    </a>
+
+    <br>
+    <br>
+
+    <form>
+
+        <label for="email">Log in with email</label>
+        <br>
+        <input type="email" id="email" name="email" placeholder="abc123@gmail.com">
+
+        <br>
+
+        <label for="password">Password</label>
+        <br>
+        <input type="password" id="password" name="password" minlength="8" required placeholder="password">
+
+    
+    </form>
+    <br>
+    <br>
+    <div>
+        <a href="tester.html" target_blank>
+        <input type="submit">
+        </a>
+    </div>
+
+    <br>
+
+    <h7>Don't have an account?</h7>
+    <a href="page2.html" target_blank>
+        Sign up
+    </a>
+
+</body>
+
+</html>
