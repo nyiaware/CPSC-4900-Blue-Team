@@ -1,0 +1,44 @@
+
+CREATE DATABASE autotune;
+USE autotune;
+    CREATE TABLE vehicles (
+    vehicle_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    make VARCHAR(100),
+    model VARCHAR(100),
+    year INT
+);
+
+CREATE TABLE engine_stats (
+    stat_id INT AUTO_INCREMENT PRIMARY KEY,
+    vehicle_id INT,
+    engine_health_status VARCHAR(100),
+    fuel_usage DECIMAL(10, 2),
+    diagnostics_code VARCHAR(100),
+    FOREIGN KEY (vehicle_id) REFERENCES vehicles(vehicle_id)
+);
+
+CREATE TABLE battery_status (
+    battery_id INT AUTO_INCREMENT PRIMARY KEY,
+    vehicle_id INT,
+    battery_health_status VARCHAR(100),
+    voltage DECIMAL(5, 2),
+    FOREIGN KEY (vehicle_id) REFERENCES vehicles(vehicle_id)
+);
+
+CREATE TABLE maintenance_history (
+    history_id INT AUTO_INCREMENT PRIMARY KEY,
+    vehicle_id INT,
+    service_date DATE,
+    details TEXT,
+    FOREIGN KEY (vehicle_id) REFERENCES vehicles(vehicle_id)
+);
+
+CREATE TABLE report_schedule (
+    schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    vehicle_id INT,
+    report_type VARCHAR(100),
+    frequency VARCHAR(50),
+    email VARCHAR(100)
+);
