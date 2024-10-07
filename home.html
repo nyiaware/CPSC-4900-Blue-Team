@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTunes: Home</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+
+        .home-header {
+            background-color: #4b6584;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .home-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .home-card {
+            background-color: #eaecef;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex-basis: 30%;
+            box-sizing: border-box;
+        }
+
+        .home-card h2 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        .home-card p {
+            margin: 0 0 15px;
+            color: #777;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #8ebefd;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #6ea2e7;
+        }
+
+        .button span {
+            margin-left: 10px;
+        }
+
+        .arrow-right {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 10px;
+            border-left: 8px solid black;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+
+        .note-form {
+            margin-top: 15px;
+        }
+
+        .note-form select, .note-form input, .note-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .note-form button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="home-header">
+        AutoTunes
+    </div>
+
+    <div class="home-container">
+
+        <!-- My Vehicle(s) Section -->
+        <div class="home-card">
+            <h2>My Vehicle(s)</h2>
+            <p>View & Edit your vehicle(s) information.</p>
+            <a href="my_vehicle.html" class="button">View <span class="arrow-right"></span></a>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="home-card">
+            <h2>Recommendations</h2>
+            <p>View Service Recommendations based off your vehicle.</p>
+            <a href="recommendations.html" class="button">View History <span class="arrow-right"></span></a>
+        </div>
+
+        <!-- Services Section -->
+        <div class="home-card">
+            <h2>Services</h2>
+            <p>Add Vehicle Services and Parts</p>
+            <a href="services.html" class="button">View Services <span class="arrow-right"></span></a>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="home-card">
+            <h2>Profile</h2>
+            <p>Edit Your Personal Information</p>
+            <a href="profile.html" class="button">Get Started <span class="arrow-right"></span></a>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="home-card">
+            <h2>My Vehicle History</h2>
+            <p>View your vehicle history.</p>
+            <a href="vehicle_history.html" class="button">View History <span class="arrow-right"></span></a>
+        </div>
+
+        <!-- Reminders Section -->
+        <div class="home-card">
+            <h2>Reminders</h2>
+            <p>Add a new reminder</p>
+            <form class="note-form">
+                <select>
+                    <option>Vehicle Service</option>
+                    <option>Vehicle Expense</option>
+                    <option>General Note</option>
+                </select>
+                <input type="text" placeholder="Enter Reminder Title">
+                <button type="button" class="button" style="background-color: #87fa96;">Save</button>
+                <button type="button" class="button" style="background-color: #f18383;">Cancel</button>
+            </form>
+            <a href="reminders.html" class="button">View All <span class="arrow-right"></span></a>
+        </div>
+
+    </div>
+
+</body>
+</html>

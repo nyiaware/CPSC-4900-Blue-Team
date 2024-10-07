@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTunes: My Vehicle(s)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #4b6584;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 700px;
+            margin: 20px auto;
+            background-color: #eaecef;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .button {
+            background-color: #8ebefd;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #6ea2e7;
+        }
+
+        .vehicle-list {
+            margin-top: 20px;
+        }
+
+        .vehicle-item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vehicle-info {
+            flex-grow: 1;
+        }
+
+        .edit-button, .delete-button {
+            background-color: #fdfd38;
+            color: black;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .delete-button {
+            background-color: #ff6b6b;
+        }
+
+        .edit-button:hover {
+            background-color: #d7d718;
+        }
+
+        .delete-button:hover {
+            background-color: #e64a4a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        AutoTunes
+    </div>
+
+    <!-- Adding a new vehicle-->
+    <div class="container">
+        <h2>Add/Edit Vehicle</h2>
+
+        <input type="hidden" id="editIndex">
+
+        <label for="year">Vehicle Year:</label>
+        <input type="text" id="year" placeholder="Enter Vehicle Year">
+
+        <label for="make">Vehicle Make:</label>
+        <input type="text" id="make" placeholder="Enter Vehicle Make">
+
+        <label for="model">Vehicle Model:</label>
+        <input type="text" id="model" placeholder="Enter Vehicle Model">
+
+        <button class="button" onclick="addVehicle()">Save Vehicle</button>
+        <a href="home.html" class="button">Cancel</a>
+        
+        <!-- Vehicle List -->
+        <h2>Your Vehicles</h2>
+        <div class="vehicle-list" id="vehicleList"></div>
+    </div>
+
+    <script>
+        // Load/displaying vehicles
+        function loadVehicles() {
+            const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+            const vehicleList = document.getElementById('vehicleList');
+            vehicleList.innerHTML = '';
+
+            vehicles.forEach((vehicle, index) => {
+                const vehicleItem = document.createElement('div');
+                vehicleItem.classList.add('vehicle-item');
+                vehicleItem.innerHTML = `
+                    <div class="vehicle-info">
+                        <strong>${vehicle.year} ${vehicle.make} ${vehicle.model}</strong>
+                    </div>
+                    <div>
+                        <button class="edit-button" onclick="editVehicle(${index})">Edit</button>
+                        <button class="delete-button" onclick="deleteVehicle(${index})">Delete</button>
+                    </div>
+                `;
+                vehicleList.appendChild(vehicleItem);
+            });
+        }
+
+        // Add/Update Vehicle
+        function addVehicle() {
+            const year = document.getElementById('year').value;
+            const make = document.getElementById('make').value;
+            const model = document.getElementById('model').value;
+            const editIndex = document.getElementById('editIndex').value;
+
+            if (!year || !make || !model) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+
+            if (editIndex === '') {
+                // adding a new vehicle
+                vehicles.push({ year, make, model });
+            } else {
+                // Updating a enw vehicle
+                vehicles[editIndex] = { year, make, model };
+                document.getElementById('editIndex').value = '';
+            }
+
+            localStorage.setItem('vehicles', JSON.stringify(vehicles));
+            clearForm();
+            loadVehicles();
+        }
+
+        // Editing a vehicle
+        function editVehicle(index) {
+            const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+            const vehicle = vehicles[index];
+
+            document.getElementById('year').value = vehicle.year;
+            document.getElementById('make').value = vehicle.make;
+            document.getElementById('model').value = vehicle.model;
+            document.getElementById('editIndex').value = index;
+        }
+
+        // Deleting a vehicle
+        function deleteVehicle(index) {
+            const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
+            vehicles.splice(index, 1);
+            localStorage.setItem('vehicles', JSON.stringify(vehicles));
+            loadVehicles();
+        }
+
+        // clearing
+        function clearForm() {
+            document.getElementById('year').value = '';
+            document.getElementById('make').value = '';
+            document.getElementById('model').value = '';
+        }
+
+        // Load after page is loaded
+        window.onload = loadVehicles;
+    </script>
+
+</body>
+</html>
