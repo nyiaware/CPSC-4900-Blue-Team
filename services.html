@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTunes: Report Parts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #eaecef;
+            padding: 20px;
+            border-radius: 10px;
+            width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .btn {
+            background-color: #8ebefd;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #6ea2e7;
+        }
+
+        .btn-remove {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .btn-remove:hover {
+            background-color: #e64a4a;
+        }
+
+        .btn-add {
+            background-color: #8ebefd;
+            color: white;
+            margin: 10px 0;
+        }
+
+        .btn-add:hover {
+            background-color: #6ea2e7;
+        }
+
+        .summary {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Report Vehicle Parts</h2>
+
+        <form method="POST" action="add_service.php">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Part Name</th>
+                        <th>Part Number</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="part_name" placeholder="Enter Part Name" required></td>
+                        <td><input type="text" name="part_number" placeholder="Enter Part Number" required></td>
+                        <td><button type="button" class="btn-remove" onclick="removeRow(this)">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="btn-add" type="button" onclick="addRow()">Add Another Part</button><br>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function addRow() {
+            const table = document.querySelector('table tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td><input type="text" name="part_name" placeholder="Enter Part Name" required></td>
+                <td><input type="text" name="part_number" placeholder="Enter Part Number" required></td>
+                <td><button type="button" class="btn-remove" onclick="removeRow(this)">Remove</button></td>
+            `;
+            table.appendChild(newRow);
+        }
+
+        function removeRow(button) {
+            button.parentElement.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>
