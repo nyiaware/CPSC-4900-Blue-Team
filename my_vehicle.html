@@ -113,18 +113,21 @@
     <div class="container">
         <h2>Add/Edit Vehicle</h2>
 
-        <input type="hidden" id="editIndex">
+        <!-- Vehicle Form -->
+        <form method="POST" action="add_vehicle.php">
+            <input type="hidden" id="editIndex">
 
-        <label for="year">Vehicle Year:</label>
-        <input type="text" id="year" placeholder="Enter Vehicle Year">
+            <label for="year">Vehicle Year:</label>
+            <input type="text" id="year" name="year" placeholder="Enter Vehicle Year">
 
-        <label for="make">Vehicle Make:</label>
-        <input type="text" id="make" placeholder="Enter Vehicle Make">
+            <label for="make">Vehicle Make:</label>
+            <input type="text" id="make" name="make" placeholder="Enter Vehicle Make">
 
-        <label for="model">Vehicle Model:</label>
-        <input type="text" id="model" placeholder="Enter Vehicle Model">
+            <label for="model">Vehicle Model:</label>
+            <input type="text" id="model" name="model" placeholder="Enter Vehicle Model">
 
-        <button class="button" onclick="addVehicle()">Save Vehicle</button>
+            <button class="button" type="submit">Save Vehicle</button>
+        </form>
         <a href="home.html" class="button">Cancel</a>
         
         <!-- Vehicle List -->
@@ -133,7 +136,7 @@
     </div>
 
     <script>
-        // Load/displaying vehicles
+        // Load/display vehicles
         function loadVehicles() {
             const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
             const vehicleList = document.getElementById('vehicleList');
@@ -170,10 +173,10 @@
             const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
 
             if (editIndex === '') {
-                // adding a new vehicle
+                // Adding a new vehicle
                 vehicles.push({ year, make, model });
             } else {
-                // Updating a enw vehicle
+                // Updating a vehicle
                 vehicles[editIndex] = { year, make, model };
                 document.getElementById('editIndex').value = '';
             }
@@ -202,14 +205,14 @@
             loadVehicles();
         }
 
-        // clearing
+        // Clear form
         function clearForm() {
             document.getElementById('year').value = '';
             document.getElementById('make').value = '';
             document.getElementById('model').value = '';
         }
 
-        // Load after page is loaded
+        // Load vehicles when page loads
         window.onload = loadVehicles;
     </script>
 
