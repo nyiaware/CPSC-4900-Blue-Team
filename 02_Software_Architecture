@@ -1,0 +1,111 @@
+```mermaid
+graph TD 
+    %% Define the Layers
+
+    %% Databases
+    subgraph Databases[Databases]
+        direction TB
+        UserDatabase[User Database] 
+        PerformanceMetricsDatabase[Performance Metrics Database]
+        VehicleDatabase[Vehicle Database]
+    end
+
+    %% Data Access Layer
+    subgraph DataAccessLayer[Data Access Layer]
+        direction TB
+        DataAccess[Data Access Layer]
+    end
+
+    %% Security Layer
+    subgraph SecurityLayer[Security Layer]
+        direction TB
+        Authorization[Authorization]
+        Encryption[Encryption]
+        Auditing[Auditing]
+    end
+
+    %% Basic Services Layer
+    subgraph BasicServicesLayer[Basic Services Layer]
+        direction TB
+        AuthenticationService[Authentication Service]
+        DataAccessService[Data Access Service]
+        NotificationService[Notification Service]
+    end
+
+    %% Functionality Layer
+    subgraph FunctionalityLayer[Functionality Layer]
+        direction TB
+        UserAccountManagement[User Account Management]
+        VehicleHealthMonitoring[Vehicle Health Monitoring]
+        RepairGuidanceSystem[Repair Guidance System]
+        PerformanceTrackingDashboard[Performance Tracking Dashboard]
+    end
+
+    %% Business Logic Layer
+    subgraph BusinessLogicLayer[Business Logic Layer]
+        direction TB
+        BusinessRules[Business Rules and Workflows]
+    end
+
+    %% API Layer
+    subgraph APILayer[API Layer]
+        direction TB
+        APIEndpoints[API Endpoints]
+        RouteHandling[Route Handling]
+    end
+
+    %% User Interface Layer
+    subgraph UserInterfaceLayer[User Interface Layer]
+        direction TB
+        WebPagesForms[Web Pages and Forms]
+        ResponsiveDesign[Responsive Design Elements]
+        FeedbackMechanisms[Feedback Mechanisms]
+    end
+
+    %% Define Arrows between Layers
+    Databases --> DataAccessLayer
+    DataAccessLayer --> SecurityLayer
+    DataAccessLayer --> BasicServicesLayer
+    BasicServicesLayer --> FunctionalityLayer
+    FunctionalityLayer --> BusinessLogicLayer
+    BusinessLogicLayer --> APILayer
+    APILayer --> UserInterfaceLayer
+
+    %% Comments for Each Layer's Purpose
+    %% Databases: 
+    %% User Database - Stores user-related data like profiles, credentials, preferences, and activity logs.
+    %% Performance Metrics Database - Stores vehicle performance metrics, such as health status, operational data, and analytics.
+    %% Vehicle Database - Contains detailed vehicle-specific data, including model, parts, repair history, and usage data.
+    
+    %% Data Access Layer: 
+    %% Provides necessary CRUD operations and abstracts database queries for consistency in data access.
+
+    %% Security Layer: 
+    %% Authorization - Verifies user permissions. 
+    %% Encryption - Secures sensitive data.
+    %% Auditing - Logs actions for security monitoring.
+
+    %% Basic Services Layer: 
+    %% Authentication Service - Handles user sessions.
+    %% Data Access Service - Provides database methods.
+    %% Notification Service - Sends alerts to users.
+
+    %% Functionality Layer: 
+    %% User Account Management - Manages user profiles.
+    %% Vehicle Health Monitoring - Analyzes performance data.
+    %% Repair Guidance System - Provides repair instructions.
+    %% Performance Tracking Dashboard - Displays performance metrics.
+
+    %% Business Logic Layer: 
+    %% Processes user requests and applies business rules.
+
+    %% API Layer: 
+    %% API Endpoints - Allows front-end interaction.
+    %% Route Handling - Directs requests.
+
+    %% User Interface Layer: 
+    %% Web Pages and Forms - Handles user input and display.
+    %% Responsive Design Elements - Ensures accessibility across devices.
+    %% Feedback Mechanisms - Displays alerts and notifications.
+
+```
