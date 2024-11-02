@@ -1,0 +1,15 @@
+Vehicle Information
+
+| Vehicle    |       |                |                 | Fuel              | Engine  | Tire 		|		   |		    |
+| ID         | Year  | Make           | Model           | Efficiency (MPG)  | Health  | Pressure (PSI)  | Part Name        | Part Number    |
+|------------|-------|----------------|-----------------|-------------------|---------|-----------------|------------------|----------------|
+| 001        | 2020  | Tesla         | Model 3         | 134               | 98%     | 42              | LED Headlight    | 1077372-00-K   |
+| 002        | 2021  | Toyota         | Camry           | 28                | 95%     | 35              | Front Brake PAD  | 04465-06190    |
+| 003        | 2022  | Ford           | F-150           | 20                | 92%     | 40              | Alternator       | JL3Z-10346-D   |
+| 004        | 2019  | Honda          | Accord          | 26                | 89%     | 34              | Oil Filter       | 15400-PLM-A02  |
+| 005        | 2018  | Chevrolet      | Silverado 1500  | 18                | 87%     | 38              | Spark Plug       | 12622441       |
+| 006        | 2021  | Nissan         | Rogue           | 27                | 94%     | 36              | Air Filter       | 16546-1AA0A    |
+| 007        | 2020  | BMW            | 3 Series        | 30                | 96%     | 33              | Brake Disc       | 34116855356    |
+| 008        | 2019  | Hyundai        | Elantra         | 33                | 91%     | 32              | Fuel Pump        | 31110-F2000    |
+| 009        | 2022  | Subaru         | Outback         | 28                | 88%     | 35              | Timing Belt      | 13028-AA240    |
+| 010        | 2020  | Mercedes-Benz  | C-Class         | 24                | 93%     | 37              | Radiator         | 2055003203     |
