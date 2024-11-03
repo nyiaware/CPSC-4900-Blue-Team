@@ -1,0 +1,23 @@
+VEHICLE: 2019 Hyundai Elantra
+PROCEDURE: Fuel Pump Replacement
+TOOLS:
+- Wrench set
+- Ratchet and socket set
+- Torque wrench
+- Fuel line disconnect tool
+- Drain pan
+
+INSTRUCTIONS:
+1. Relieve the fuel pressure:
+- Disconnect the fuel pump fuse and start the engine to burn off remaining fuel in the lines
+
+2. Access the fuel pump:
+- In most vehicles, the fuel pump is located under the rear seat or in the fuel tank.
+o	Remove the seat or access panel to reach the fuel pump.
+3.	Disconnect the fuel lines:
+o	Use a fuel line disconnect tool to carefully remove the fuel lines from the pump.
+4.	Replace the fuel pump:
+o	Remove the bolts holding the pump in place and carefully lift it out.
+o	Install the new pump, reconnect the fuel lines, and tighten everything with a torque wrench.
+5.	Reassemble the seat or panel:
+o	Reinstall the access panel or seat and reconnect the fuel pump fuse.
