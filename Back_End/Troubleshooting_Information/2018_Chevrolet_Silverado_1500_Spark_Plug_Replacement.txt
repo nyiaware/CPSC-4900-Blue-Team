@@ -1,0 +1,22 @@
+VEHICLE: 2018 Chevrolet Silverado 1500
+PROCEDURE: Spark Plug Replacement
+TOOLS:
+- Spark plug socket
+- Ratchet and extension
+- Torque wrench
+- Dielectric grease
+
+INSTRUCTIONS:
+1. Remove the ignition coils:
+- Disconnect the battery and locate the ignition coils
+- Remove the electrical connectors and bolts securing the coils, then pull them out
+
+2. Remove the old spark plugs:
+- Use a spark plug socket and ratchet to remove the old spark plugs
+
+3. Install new spark plugs:
+- Apply a small amount of dielectric grease to the new spark plug threads
+- Screw in the new plugs by hand, then tighten them with a torque wrench to the manufacturer's specification
+
+4. Reinstall the ignition coils:
+- Place the coils back in their positions and reconnect the electrical connectors
