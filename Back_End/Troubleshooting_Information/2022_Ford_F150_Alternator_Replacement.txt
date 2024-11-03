@@ -1,0 +1,26 @@
+VEHICLE: 2022 Ford F-150
+PROCEDURE: Alternator Replacement
+TOOLS:
+- Wrench set
+- Ratchet and socket set
+- Serpentine belt tool or breaker bar
+- Torque wrench
+
+INSTRUCTIONS:
+1. Disconnect the battery:
+- Always start by disconnecting the negative terminal of the battery to avoid electrical shocks
+
+2. Remove the serpentine belt:
+- Use the serpentine belt tool or a breaker bar to release the tension on the belt and slide it off the alternator pulley
+
+3. Remove the alternator:
+- Disconnect the electrical connections from the alternator
+- Use a socket set to remove the bolts holding the alternator in place, and carefully lift it out
+
+4. Install the new alternator:
+- Place the new alternator in position and secure it with bolts
+- Reconnect the electrical connections and reattach the serpentine belt
+- Tighten everything to the manufacturer's specifications using a torque wrench
+
+5. Reconnect the battery:
+- Reconnect the battery and start the vehicle to test the alternator
