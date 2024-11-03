@@ -1,0 +1,26 @@
+VEHICLE: 2019 Honda Accord
+PROCEDURE: Oil Filter Replacement
+TOOLS:
+- Oil filter wrench
+- Drain pan
+- Socket wrench
+- Funnel
+- New oil filter
+- New oil
+
+INSTRUCTIONS:
+1. Drain the old oil:
+- Lift the vehicle and place a drain pan underneath the oil pan
+- Remove the oil drain plug using a socket wrench and allow the oil to drain completely
+
+2. Remove the old oil filter:
+- Use an oil filter wrench to loosen and remove the oil filter
+- Be careful as oil may still be in the filter
+
+3. Install the new oil filter:
+- Apply a small amount of fresh oil to the rubber gasket of the new filter
+- Screw the new filter in place by hand, and then tighten it with the filter wrench
+
+4. Refill with new oil:
+- Reinstall the oil drain plug and lower the car
+- Use a funnel to add the appropriate amount of oil to the engine
