@@ -1,0 +1,25 @@
+VEHICLE: 2020 Tesla Model 3
+PROCEDURE: LED Headlight Installation
+TOOLS: 
+- Flathead screwdriver
+- Ratchet and socket set
+- Trim removal tool
+- T25 Torx screwdriver
+
+INSTRUCTIONS:
+1. Remove the front bumper:
+- Open the frunk and remove the bolts securing the front bumper using a T25 Torx screwdriver
+- Use a trim removal tool to gently pry off the plastic clips around the bumper
+- Disconnect any electrical connections for sensors on the bumper and pull it away carefully
+
+2. Remove the old headlight:
+- Disconnect the wiring harness from the back of the headlight
+- Use the ratchet set to remove the bolts holding the headlight in place
+- Carefully slide the old headlight out of the housing
+
+3. Install the new LED headlight:
+- Align the new headlight into place and secure it with bolts
+- Reconnect the wiring harness and test the new headlight before reattaching the bumper
+
+4. Reattach the front bumper:
+- Align the bumper and reattach it by tightening the bolts and clips
