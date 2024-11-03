@@ -1,6 +1,11 @@
 <?php
-// Include the database connection file
+// Project: AutoTune
+// Author: Nyia Ware
+// Description: This script handles user registration by capturing form data, securely hashing the password,
+// and inserting the user's information into the UserProfiles table of the AutoTune database.
+
 include 'db_autotune.php'; 
+
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capture form data securely
