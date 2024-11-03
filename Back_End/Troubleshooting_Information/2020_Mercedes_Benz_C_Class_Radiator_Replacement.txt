@@ -1,0 +1,26 @@
+VEHICLE: 2020 Mercedes-Benz C-Class
+PROCEDURE: Radiator Replacement
+TOOLS:
+- Drain pan
+- Socket set
+- Torque wrench
+- Pliers
+- Flathead screwdriver
+
+INSTRUCTIONS:
+1. Drain the coolant:
+- Place a drain pan under the radiator and open the drain plug to release the coolant
+
+2. Remove the hoses and fans:
+- Use pliers to disconnect the radiator hoses and a socket wrench to remove the cooling fans
+
+3. Remove the old radiator:
+- Remove the bolts securing the radiator and carefully lift it out
+
+4. Install the new radiator:
+- Position the new radiator and secure it with the bolts
+- Reconnect the hoses and reinstall the cooling fans
+
+5. Refill with coolant:
+- Close the drain plug and refill the system with the appropriate coolant
+- Start the engine and check for leaks
