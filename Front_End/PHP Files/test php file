@@ -1,0 +1,38 @@
+<?php
+// Database connection settings
+$servername = "localhost";
+$username = "your_db_username";
+$password = "your_db_password";
+$dbname = "AutoTuneDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Capture form data securely
+    $username = $conn->real_escape_string($_POST['username']);
+    $hashedPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $email = $conn->real_escape_string($_POST['email']);
+    $phoneNumber = $conn->real_escape_string($_POST['phoneNumber']);
+    $address = $conn->real_escape_string($_POST['address']);
+
+    // Insert data into UserProfiles table
+    $sql = "INSERT INTO UserProfiles (Username, HashedPassword, Email, PhoneNumber, Address)
+            VALUES ('$username', '$hashedPassword', '$email', '$phoneNumber', '$address')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
