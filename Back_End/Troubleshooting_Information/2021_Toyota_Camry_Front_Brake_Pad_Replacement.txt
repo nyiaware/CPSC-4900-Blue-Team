@@ -1,0 +1,26 @@
+VEHICLE: 2021 Toyota Camry
+PROCEDURE: Front Brake Pad Replacement
+TOOLS:
+- Jack and jack stands
+- Lug wrench
+- C-clamp
+- Brake pad spreader tool
+- Ratchet and socket set
+- Brake cleaner
+
+INSTRUCTIONS:
+1. Lift the car:
+- Use a jack to lift the front of the vehicle and secure it with jack stands
+- Remove the front wheels using the lug wrench
+
+2. Remove the caliper:
+- Use the ratchet set to remove the bolts securing the brake caliper to the rotor
+- Slide the caliper off and hang it using a zip tie (don't let it dangle from the brake line)
+
+3. Replace the brake pads:
+- Use the C-clamp to push the caliper piston back into its housing
+- Remove the old brake pads from the caliper bracket and install the new pads
+
+4. Reinstall the caliper and wheel:
+- Place the caliper back over the rotor and tighten the bolts
+- Reinstall the wheels and lower the car
