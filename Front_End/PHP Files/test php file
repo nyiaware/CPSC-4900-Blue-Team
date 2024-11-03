@@ -1,18 +1,6 @@
 <?php
-// Database connection settings
-$servername = "localhost";
-$username = "your_db_username";
-$password = "your_db_password";
-$dbname = "AutoTuneDB";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+// Include the database connection file
+include 'db_autotune.php'; 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capture form data securely
