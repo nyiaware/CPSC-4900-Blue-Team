@@ -1,7 +1,14 @@
 # AutoTune Project Documentation
 
 ## Project Overview
-AutoTune is an automotive management application designed to streamline user account management, vehicle tracking, service maintenance logging, diagnostics and tuning, audit logs, notifications, payments, and other user-centric features. This README provides guidance on project structure, usage notes, and contribution guidelines.
+AutoTune is a web-based automotive management application that provides users with tools for managing vehicle information, tracking service history, and performing diagnostics. It features user account management, secure data handling, and a user-friendly interface, allowing efficient record-keeping and maintenance tracking for vehicles.
+
+### Key Features
+- **User Account Management**: Register, log in, and update user profiles.
+- **Vehicle Information**: Add and view detailed vehicle information.
+- **Service and Maintenance Logs**: Track the service history of each vehicle.
+- **Data Retrieval and Submission**: Streamlined data entry and retrieval processes.
+- **Role-Based Access**: Different access levels for users based on roles.
 
 ## Team Members
 
@@ -15,23 +22,54 @@ AutoTune is an automotive management application designed to streamline user acc
 
 ## Project Structure
 
-- **Back_End**: Contains server-side scripts, database models, controllers, routes, and SQL files for managing database operations.
-- **Front_End**: Includes HTML, CSS, JavaScript, PHP files, and assets for the user interface and client-side functionality.
-- **Database**: Houses database configuration files, migrations, and seed data.
-- **Documentation**: Contains the README, API documentation, troubleshooting information, and contributing guidelines.
-- **Tests**: Holds test cases for both front-end and back-end features.
-- **Logs**: Contains access and error logs for debugging purposes.
-- **Config**: Stores environment configuration files for database and application settings.
+- **Back_End**: Server-side scripts, database models, controllers, routes, and SQL files for managing database operations.
+- **Front_End**: HTML, CSS, JavaScript, PHP files, and assets for the user interface and client-side functionality.
+- **Database**: Configuration files, migrations, and seed data for database setup.
+- **Documentation**: Contains this README, API documentation, troubleshooting information, and contributing guidelines.
+- **Tests**: Test cases for both front-end and back-end features.
+- **Logs**: Access and error logs for debugging purposes.
+- **Config**: Environment configuration files for database and application settings.
+
+## Installation and Setup
+
+To set up the project, follow these steps:
+
+1. **Clone the Repository**: Download the project files:
+   ```bash
+   git clone <repository-url>
+   ```
+
+2. **Database Setup**: Import the `AutoTuneDB_Schema.sql` file into your MySQL server to establish the database schema.
+
+3. **Configure Database Connection**: Update `/Front_End/db_autotune.php` with your MySQL database credentials.
+
+4. **Run the Application**: Open the project in a web server environment that supports PHP and MySQL (e.g., XAMPP, WAMP).
+
+5. **Testing**: Test functionality by navigating to the login and registration pages, creating an account, and entering vehicle data to ensure smooth data entry and retrieval.
+
+## Usage
+
+- **User Login**: Log in with your credentials.
+- **Add Vehicle Information**: Use the vehicle entry form to add vehicle details.
+- **View Service History**: Check the service logs for maintenance records.
+- **Manage Profile**: Update your profile details in the account settings.
 
 ## Usage Notes
 
-- Make sure to configure your SQL environment to support MySQL syntax.
-- Ensure you have the necessary permissions to create databases and modify tables before executing any scripts.
-- The command `DROP DATABASE IF EXISTS AutoTuneDB;` should be used with caution, as it will delete the database if it exists.
+- Configure your SQL environment to support MySQL syntax.
+- Ensure you have permissions for database creation and modification before running any scripts.
+- Be cautious with the command `DROP DATABASE IF EXISTS AutoTuneDB;` as it will delete the database if it already exists.
 
 ## Contribution Guidelines
 
-When contributing to this project, please use the following template for file headers. This ensures consistency across the codebase, making it easier for the team to track contributions and understand the purpose of each file.
+If you’d like to contribute to the AutoTune project, please follow these steps:
+
+1. **Fork the Repository**: Create your own copy.
+2. **Create a New Branch**: Use a new branch for each feature or bug fix.
+3. **Review and Test**: Ensure your code is reviewed and thoroughly tested.
+4. **Submit a Pull Request**: To integrate your changes.
+
+Please use the file header template below in all new and modified files to maintain documentation consistency across the codebase:
 
 ### File Header Template
 
@@ -61,4 +99,4 @@ When contributing to this project, please use the following template for file he
  *******************************************************/
 ```
 
-Please follow this template for all new and updated files. It ensures all team members provide detailed, consistent documentation, improving collaboration and project management.
+This template ensures detailed, consistent documentation, making collaboration and project management smoother for the entire team.
