@@ -1,7 +1,7 @@
 /*******************************************************
  * File: 03_SignIn.html
- * Author:
- * Co-Author(s):
+ * Author: [Your Name]
+ * Co-Author(s): [List any other contributors]
  * Project: AutoTune
  *
  * Description:
@@ -21,8 +21,8 @@
  * - The form currently does not have an `action` attribute, so it does not submit data anywhere.
  *
  * Revision History:
- * - 2024-10-09: Initial creation
- * - 
+ * - [Date]: Initial creation
+ * - [Date]: Added social media login buttons and basic styling
  * 
  *******************************************************/
 
@@ -68,4 +68,35 @@
 
     <!-- Sign-in form for email and password -->
     <form>
-        <!-- Label and input field fo
+        <!-- Label and input field for email -->
+        <label for="email">Log in with email</label>
+        <br>
+        <input type="email" id="email" name="email" placeholder="abc123@gmail.com">
+
+        <br>
+
+        <!-- Label and input field for password with a minimum length requirement -->
+        <label for="password">Password</label>
+        <br>
+        <input type="password" id="password" name="password" minlength="8" required placeholder="password">
+    </form>
+
+    <br><br>
+
+    <!-- Submit button wrapped in a link tag (does not submit form data) -->
+    <div>
+        <a href="tester.html" target="_blank">
+            <input type="submit">
+        </a>
+    </div>
+
+    <br>
+
+    <!-- Sign-up link for users who do not have an account -->
+    <h7>Don't have an account?</h7>
+    <a href="page2.html" target="_blank">
+        Sign up
+    </a>
+
+</body>
+</html>
