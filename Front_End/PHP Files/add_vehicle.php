@@ -22,7 +22,7 @@
  *******************************************************/
 
 <?php
-session_start();
+session_start();    
 include 'db_autotune.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

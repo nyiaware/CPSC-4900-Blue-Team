@@ -1,5 +1,5 @@
 /*******************************************************
- * File: 03_SignIn.html
+ * File: SignIn.html
  * Author: [Your Name]
  * Co-Author(s): [List any other contributors]
  * Project: AutoTune
@@ -18,12 +18,20 @@
  * Usage Notes:
  * - Ensure that "style.css" and "css/main.css" are available and linked correctly 
  *   for styling to render properly.
- * - The form currently does not have an `action` attribute, so it does not submit data anywhere.
+ * - The form currently does not have an `action` attribute, 
+ *   so it does not submit data anywhere.
  *
  * Revision History:
- * - [Date]: Initial creation
- * - [Date]: Added social media login buttons and basic styling
- * 
+ *      [Date]: [Name]
+ *          - Initial creation
+ *      [Date]: [Name] 
+ *          - Added social media login buttons and basic styling
+ *      2024-11-06: Christian Morrow
+ *          - Modified form to submit data to SignIn.php 
+ *            (needed to update to handle the username and password logic).
+ *          - Modified submit button to be inside form and submit the 
+ *            form to to SignIn.php
+ *          - Removed Apple Sign-In
  *******************************************************/
 
 <!DOCTYPE html>
@@ -52,13 +60,6 @@
 
     <br><br>
 
-    <!-- Link to Apple sign-in -->
-    <a href="https://appleid.apple.com" target="_blank">
-        <button style="border-radius: 25px; font-size: 15px;">Sign in with Apple</button>
-    </a>
-
-    <br><br>
-
     <!-- Link to Facebook sign-in -->
     <a href="https://www.facebook.com" target="_blank">
         <button style="border-radius: 25px; font-size: 15px;">Sign in with Facebook</button>
@@ -66,37 +67,36 @@
 
     <br><br>
 
-    <!-- Sign-in form for email and password -->
-    <form>
-        <!-- Label and input field for email -->
-        <label for="email">Log in with email</label>
+    <!-- Sign-in form for username and password -->
+    <form action="SignIn.php" method="POST">
+        <!-- Label and input field for username -->
+        <label for="username">Log in with username</label>
         <br>
-        <input type="email" id="email" name="email" placeholder="abc123@gmail.com">
-
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
         <br>
 
         <!-- Label and input field for password with a minimum length requirement -->
         <label for="password">Password</label>
         <br>
-        <input type="password" id="password" name="password" minlength="8" required placeholder="password">
+        <input type="password" id="password" name="password" minlength="8" required placeholder="Enter your password">
+        <br><br>
+
+        <!-- Submit button for the form -->
+        <input type="submit" value="Sign In">
     </form>
 
     <br><br>
 
-    <!-- Submit button wrapped in a link tag (does not submit form data) -->
-    <div>
-        <a href="tester.html" target="_blank">
-            <input type="submit">
-        </a>
-    </div>
-
-    <br>
-
     <!-- Sign-up link for users who do not have an account -->
     <h7>Don't have an account?</h7>
-    <a href="page2.html" target="_blank">
+    <a href="SignUp.php" target="_blank">
         Sign up
     </a>
 
 </body>
 </html>
+
+
+</body>
+</html>
+ 

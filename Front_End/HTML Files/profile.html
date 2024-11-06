@@ -174,34 +174,37 @@
         <h2>User Settings</h2>
         <p>Fill down your personal info.</p>
 
-        <!-- Personal information section with input fields -->
-        <div class="section-title">Personal Info</div>
-        <input type="text" placeholder="First Name">
-        <input type="text" placeholder="Last Name">
-        <input type="email" placeholder="Email">
+        <!-- Start of form for updating user settings -->
+        <form method="POST" action="save_profile.php">
+            <!-- Personal information section with input fields -->
+            <div class="section-title">Personal Info</div>
+            <input type="text" name="first_name" value="" placeholder="First Name">
+            <input type="text" name="last_name" value="" placeholder="Last Name">
+            <input type="email" name="email" value="" placeholder="Email">
 
-        <!-- Email notification preferences section with checkboxes -->
-        <div class="section-title">Email Notifications</div>
-        <div class="email-settings">
-            <label>
-                Urgent Services
-                <input type="checkbox" id="urgent_services">
-            </label>
-            <label>
-                Monthly Reports
-                <input type="checkbox" id="monthly_reports">
-            </label>
-            <label>
-                Maintenance Suggestions
-                <input type="checkbox" id="maintenance_suggestions">
-            </label>
-        </div>
+            <!-- Email notification preferences section with checkboxes -->
+            <div class="section-title">Email Notifications</div>
+            <div class="email-settings">
+                <label>
+                    Urgent Services
+                    <input type="checkbox" name="urgent_services" id="urgent_services">
+                </label>
+                <label>
+                    Monthly Reports
+                    <input type="checkbox" name="monthly_reports" id="monthly_reports">
+                </label>
+                <label>
+                    Maintenance Suggestions
+                    <input type="checkbox" name="maintenance_suggestions" id="maintenance_suggestions">
+                </label>
+            </div>
 
-        <!-- Buttons to save changes or cancel and go back -->
-        <div class="buttons">
-            <a href="#" class="btn">Save</a>
-            <a href="home.html" class="btn">Cancel</a>
-        </div>
+            <!-- Buttons to save changes or cancel and go back -->
+            <div class="buttons">
+                <button type="submit" class="btn">Save</button>
+                <a href="home.html" class="btn">Cancel</a>
+            </div>
+        </form>
     </div>
 
 </body>
