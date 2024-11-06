@@ -1,7 +1,7 @@
 <?php
 /**
  * File: db_autotune.php
- * Author: [unknown]
+ * Author: Nyia Ware
  * Project: AutoTune
  * 
  * Description:
@@ -18,7 +18,7 @@
  *   - To prevent potential security risks, avoid hardcoding sensitive details in production code.
  *
  * Revision History:
- *   - [unknown date]: [unknown author]
+ *   - 2024-11-03: Nyia Ware
  *     Initial connection script created.
  *   - 2024-11-03: Christian Morrow
  *     Updates: 

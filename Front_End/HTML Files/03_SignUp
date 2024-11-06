@@ -1,68 +1,70 @@
+/*******************************************************
+ * File: 03_SignUp.html
+ * Author: 
+ * Co-Author(s):
+ * Project: AutoTune
+ *
+ * Description:
+ * This file provides the HTML structure for the AutoTune user 
+ * sign-up page. It includes options for signing up through Google 
+ * and Facebook, as well as a form for signing up with an email 
+ * address and password.
+ * 
+ * Major Components:
+ * - Social Sign-Up Buttons: Links to Google and Facebook sign-up pages
+ * - Email Sign-Up Form: Fields for email, confirmation email, and password
+ * - Email Validation Script: Ensures a properly formatted email
+ *
+ * Usage Notes:
+ * - Ensure "css/page2.css" and "style.css" are available for styling.
+ * - This form does not yet have an `action` attribute, so data will not 
+ *   be sent to a backend upon submission.
+ * - The email validation script provides basic client-side validation.
+ *
+ * Revision History:
+ * - [Date]: Initial creation with form structure
+ * - [Date]: Added email validation script
+ * 
+ *******************************************************/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta information for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- Page title and stylesheet links -->
+    <title>SignUp</title>
     <link rel="stylesheet" href="css/page2.css">
-</head>
-<title>SignUp</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-<body>
-    <h1> AutoTune</h1>
+</head>
 
-    <a href="https://accounts.google.com" target=_blank>
+<body>
+    <!-- Main heading for the AutoTune application -->
+    <h1>AutoTune</h1>
+
+    <!-- Social media sign-up buttons -->
+    <!-- Link to Google sign-up -->
+    <a href="https://accounts.google.com" target="_blank">
         <button>Sign up with Google</button>
     </a>
 
-    <br>
-    <br>
+    <br><br>
 
-    <a href="https://www.facebook.com" target=_blank>
+    <!-- Link to Facebook sign-up -->
+    <a href="https://www.facebook.com" target="_blank">
         <button>Sign up with Facebook</button>
     </a>
-    <br>
-    <br>
 
+    <br><br>
+
+    <!-- Email sign-up form -->
     <form>
-
+        <!-- Label and input field for email sign-up -->
         <label for="email">Sign up with email</label>
         <br>
         <input type="email" id="email" name="email" placeholder="abc123@gmail.com">
-        <script>
-            function validateEmail(){
-                const emailInput=
-                document.getElementById('email').value;
-                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                
-                if (!regex.test(emailInput)){
-                    alert('Please enter a valid email address.');
-                    return false;
-                }
-                return true;
-            }
-        </script>
-        <br>
 
-        <br>
-
-        <label for="confirmemail">Confirm email</label>
-        <br>
-        <input type="email" id="comfirmemail" name="confirmemail" placeholder="abc123@gmail.com">
-
-        <br>
-        <br>
-
-        <label for="password">Create a password</label>
-        <br>
-        <input type="password" id="password" name="password" minlength="8" require placeholder="password">
-        <br>
-        <br>
-        <div>
-            <input type="submit">
-        </div>
-    </form>
-
-</body>
-</html>
+        <!--

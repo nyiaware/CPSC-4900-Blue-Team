@@ -1,3 +1,28 @@
+/*******************************************************
+ * File: services.html
+ * Author: [Your Name]
+ * Co-Author(s): [List any other contributors]
+ * Project: AutoTune
+ *
+ * Description:
+ * This HTML document provides a user interface for reporting vehicle parts in the AutoTune application.
+ * Users can add multiple parts, input details like part name and number, and submit them.
+ *
+ * Major Components:
+ * - Container: Centralized layout for form elements.
+ * - Table: Displays each part's name and number, with options to add or remove rows dynamically.
+ * - Buttons: Controls for adding/removing parts and submitting the form.
+ *
+ * Usage Notes:
+ * - Requires JavaScript to enable dynamic row addition and removal.
+ * - Ensure the form action URL is properly configured to handle the submitted part data.
+ *
+ * Revision History:
+ * - [Date]: Initial creation with form and table structure.
+ * - [Date]: Added JavaScript functions for row management.
+ * 
+ *******************************************************/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoTunes: Report Parts</title>
     <style>
+        /* Base styling for body */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -12,6 +38,7 @@
             padding: 20px;
         }
 
+        /* Container styling for main content area */
         .container {
             background-color: #eaecef;
             padding: 20px;
@@ -22,17 +49,20 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
+        /* Heading styling */
         h2 {
             font-size: 1.8em;
             margin-bottom: 20px;
         }
 
+        /* Table styling */
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
 
+        /* Border and padding for table cells */
         table, th, td {
             border: 1px solid #ddd;
         }
@@ -42,6 +72,7 @@
             text-align: left;
         }
 
+        /* Base button styling */
         .btn {
             background-color: #8ebefd;
             color: black;
@@ -54,29 +85,35 @@
             transition: background-color 0.3s;
         }
 
+        /* Hover effect for primary button */
         .btn:hover {
             background-color: #6ea2e7;
         }
 
+        /* Remove button styling */
         .btn-remove {
             background-color: #ff6b6b;
             color: white;
         }
 
+        /* Hover effect for remove button */
         .btn-remove:hover {
             background-color: #e64a4a;
         }
 
+        /* Styling for add button */
         .btn-add {
             background-color: #8ebefd;
             color: white;
             margin: 10px 0;
         }
 
+        /* Hover effect for add button */
         .btn-add:hover {
             background-color: #6ea2e7;
         }
 
+        /* Summary message styling */
         .summary {
             background-color: #d4edda;
             color: #155724;
@@ -88,9 +125,11 @@
 </head>
 <body>
 
+    <!-- Main container for reporting vehicle parts -->
     <div class="container">
         <h2>Report Vehicle Parts</h2>
 
+        <!-- Form for adding and reporting parts -->
         <form method="POST" action="add_service.php">
             <table>
                 <thead>
@@ -101,6 +140,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Initial row for part entry -->
                     <tr>
                         <td><input type="text" name="part_name" placeholder="Enter Part Name" required></td>
                         <td><input type="text" name="part_number" placeholder="Enter Part Number" required></td>
@@ -109,12 +149,15 @@
                 </tbody>
             </table>
 
+            <!-- Button to add additional part rows -->
             <button class="btn-add" type="button" onclick="addRow()">Add Another Part</button><br>
+            <!-- Submit button for the form -->
             <button class="btn" type="submit">Submit</button>
         </form>
     </div>
 
     <script>
+        // Function to add a new row for part entry
         function addRow() {
             const table = document.querySelector('table tbody');
             const newRow = document.createElement('tr');
@@ -126,6 +169,7 @@
             table.appendChild(newRow);
         }
 
+        // Function to remove a row from the table
         function removeRow(button) {
             button.parentElement.parentElement.remove();
         }

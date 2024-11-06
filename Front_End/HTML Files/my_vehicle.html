@@ -1,3 +1,28 @@
+/*******************************************************
+ * File: my_vehicle.html
+ * Author: [Your Name]
+ * Co-Author(s): [List any other contributors]
+ * Project: AutoTune
+ *
+ * Description:
+ * This HTML document provides a user interface for managing vehicles within the AutoTune application.
+ * Users can add, edit, and delete vehicle entries, which are stored in the browser's local storage.
+ * 
+ * Major Components:
+ * - Header: Displays the application title.
+ * - Vehicle Form: Allows users to input vehicle details (year, make, and model).
+ * - Vehicle List: Shows all stored vehicles with options to edit or delete each entry.
+ *
+ * Usage Notes:
+ * - This page requires JavaScript to function as intended, as it relies on local storage for persistence.
+ * - Ensure local storage is enabled in the browser for the save and edit features to work correctly.
+ *
+ * Revision History:
+ * - [Date]: Initial creation and setup of UI and local storage functions.
+ * - [Date]: Added input validation and improved form UX.
+ * 
+ *******************************************************/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoTunes: My Vehicle(s)</title>
     <style>
+        /* Basic styling for body */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -12,6 +38,7 @@
             padding: 20px;
         }
 
+        /* Header styling */
         .header {
             background-color: #4b6584;
             color: white;
@@ -21,6 +48,7 @@
             font-weight: bold;
         }
 
+        /* Container styling for main content */
         .container {
             width: 700px;
             margin: 20px auto;
@@ -30,12 +58,14 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
+        /* Title styling */
         h2 {
             font-size: 1.5em;
             margin-bottom: 20px;
             color: #333;
         }
 
+        /* Input field styling */
         input[type="text"] {
             width: calc(100% - 20px);
             padding: 10px;
@@ -44,6 +74,7 @@
             border: 1px solid #ccc;
         }
 
+        /* Styling for action buttons */
         .button {
             background-color: #8ebefd;
             color: white;
@@ -55,14 +86,17 @@
             margin-top: 10px;
         }
 
+        /* Hover effect for buttons */
         .button:hover {
             background-color: #6ea2e7;
         }
 
+        /* Vehicle list section */
         .vehicle-list {
             margin-top: 20px;
         }
 
+        /* Individual vehicle item styling */
         .vehicle-item {
             background-color: #fff;
             padding: 15px;
@@ -74,10 +108,12 @@
             align-items: center;
         }
 
+        /* Vehicle info container */
         .vehicle-info {
             flex-grow: 1;
         }
 
+        /* Edit and delete button styling */
         .edit-button, .delete-button {
             background-color: #fdfd38;
             color: black;
@@ -89,10 +125,12 @@
             margin-left: 10px;
         }
 
+        /* Delete button color */
         .delete-button {
             background-color: #ff6b6b;
         }
 
+        /* Hover effects for edit and delete buttons */
         .edit-button:hover {
             background-color: #d7d718;
         }
@@ -109,7 +147,7 @@
         AutoTunes
     </div>
 
-    <!-- Adding a new vehicle-->
+    <!-- Main container for adding/editing a vehicle -->
     <div class="container">
         <h2>Add/Edit Vehicle</h2>
 
@@ -117,26 +155,31 @@
         <form method="POST" action="add_vehicle.php">
             <input type="hidden" id="editIndex">
 
+            <!-- Vehicle year input -->
             <label for="year">Vehicle Year:</label>
             <input type="text" id="year" name="year" placeholder="Enter Vehicle Year">
 
+            <!-- Vehicle make input -->
             <label for="make">Vehicle Make:</label>
             <input type="text" id="make" name="make" placeholder="Enter Vehicle Make">
 
+            <!-- Vehicle model input -->
             <label for="model">Vehicle Model:</label>
             <input type="text" id="model" name="model" placeholder="Enter Vehicle Model">
 
+            <!-- Save button -->
             <button class="button" type="submit">Save Vehicle</button>
         </form>
+        <!-- Cancel button, redirects to home page -->
         <a href="home.html" class="button">Cancel</a>
         
-        <!-- Vehicle List -->
+        <!-- Vehicle List Section -->
         <h2>Your Vehicles</h2>
         <div class="vehicle-list" id="vehicleList"></div>
     </div>
 
     <script>
-        // Load/display vehicles
+        // Function to load and display vehicles from local storage
         function loadVehicles() {
             const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
             const vehicleList = document.getElementById('vehicleList');
@@ -158,7 +201,7 @@
             });
         }
 
-        // Add/Update Vehicle
+        // Function to add or update a vehicle
         function addVehicle() {
             const year = document.getElementById('year').value;
             const make = document.getElementById('make').value;
@@ -176,7 +219,7 @@
                 // Adding a new vehicle
                 vehicles.push({ year, make, model });
             } else {
-                // Updating a vehicle
+                // Updating an existing vehicle
                 vehicles[editIndex] = { year, make, model };
                 document.getElementById('editIndex').value = '';
             }
@@ -186,7 +229,7 @@
             loadVehicles();
         }
 
-        // Editing a vehicle
+        // Function to load a vehicle for editing
         function editVehicle(index) {
             const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
             const vehicle = vehicles[index];
@@ -197,7 +240,7 @@
             document.getElementById('editIndex').value = index;
         }
 
-        // Deleting a vehicle
+        // Function to delete a vehicle
         function deleteVehicle(index) {
             const vehicles = JSON.parse(localStorage.getItem('vehicles')) || [];
             vehicles.splice(index, 1);
@@ -205,14 +248,14 @@
             loadVehicles();
         }
 
-        // Clear form
+        // Function to clear form fields
         function clearForm() {
             document.getElementById('year').value = '';
             document.getElementById('make').value = '';
             document.getElementById('model').value = '';
         }
 
-        // Load vehicles when page loads
+        // Load vehicles on page load
         window.onload = loadVehicles;
     </script>
 

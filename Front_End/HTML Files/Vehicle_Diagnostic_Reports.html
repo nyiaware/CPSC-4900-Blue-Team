@@ -1,3 +1,27 @@
+/*******************************************************
+ * File: Vehicle_Diagnostic_Reports.html
+ * Author: [Your Name]
+ * Co-Author(s): [List any other contributors]
+ * Project: AutoTune
+ *
+ * Description:
+ * This HTML document provides interfaces for generating on-demand vehicle diagnostic reports and scheduling automatic reports.
+ * Users can input vehicle details, specify an email for receiving the report, and schedule future report generation.
+ *
+ * Major Components:
+ * - On-Demand Report Form: Allows users to request an immediate diagnostic report for a specified vehicle.
+ * - Scheduled Report Form: Allows users to schedule a report for a later date and time, with an optional email notification.
+ *
+ * Usage Notes:
+ * - Ensure server-side scripts (generate_report.php, schedule_report.php) are configured to handle report requests properly.
+ * - Users should provide valid vehicle IDs and email addresses.
+ *
+ * Revision History:
+ * - [Date]: Initial creation of on-demand and scheduled report forms.
+ * - [Date]: Added validation for required fields.
+ * 
+ *******************************************************/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +32,7 @@
 <body>
     <h1>Vehicle Diagnostic Report</h1>
     
-    <!-- Form to request report on demand -->
+    <!-- Form for generating on-demand diagnostic reports -->
     <form action="generate_report.php" method="POST">
         <label for="vehicle_id">Vehicle ID:</label>
         <input type="text" name="vehicle_id" required><br><br>
@@ -21,7 +45,7 @@
     
     <hr>
 
-    <!-- Form to schedule automatic report generation -->
+    <!-- Form for scheduling automatic diagnostic report generation -->
     <form action="schedule_report.php" method="POST">
         <label for="vehicle_id">Vehicle ID:</label>
         <input type="text" name="vehicle_id" required><br><br>

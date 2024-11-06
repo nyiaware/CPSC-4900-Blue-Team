@@ -1,16 +1,52 @@
+/*******************************************************
+ * File: 05_home.html
+ * Author: [Your Name]
+ * Co-Author(s): [List any other contributors]
+ * Project: AutoTune
+ *
+ * Description:
+ * This file defines the homepage structure for the AutoTune application. 
+ * It provides a dashboard-like interface allowing users to navigate to 
+ * various features like viewing vehicles, adding reminders, and updating 
+ * their profiles.
+ * 
+ * Major Components:
+ * - Header: Displays the application name
+ * - Home Cards: Sections for "My Vehicles," "Recommendations," "Services," 
+ *   "Profile," "Vehicle History," and "Reminders" with buttons linking to 
+ *   respective pages
+ * - Reminder Form: A form within the "Reminders" section allowing users to 
+ *   add a reminder for vehicle services or expenses
+ *
+ * Usage Notes:
+ * - Requires inline styles defined in <style> for layout and design.
+ * - Forms and links currently use dummy paths; modify paths as needed 
+ *   based on the file structure.
+ *
+ * Revision History:
+ * - [Date]: Initial creation with layout for dashboard sections
+ * - [Date]: Added form for reminders in the "Reminders" section
+ * 
+ *******************************************************/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta information for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title and inline CSS for basic styling -->
     <title>AutoTunes: Home</title>
     <style>
+        /* Basic styling for the page */
         body {
             font-family: Verdana, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
         }
 
+        /* Header styling */
         .home-header {
             background-color: #4b6584;
             color: white;
@@ -20,6 +56,7 @@
             font-weight: bold;
         }
 
+        /* Container for the home cards */
         .home-container {
             display: flex;
             flex-wrap: wrap;
@@ -29,6 +66,7 @@
             margin: 20px auto;
         }
 
+        /* Styling for each home card */
         .home-card {
             background-color: #eaecef;
             padding: 20px;
@@ -39,16 +77,19 @@
             box-sizing: border-box;
         }
 
+        /* Title styling for each card */
         .home-card h2 {
             font-size: 1.5em;
             margin: 0 0 10px;
         }
 
+        /* Description styling for each card */
         .home-card p {
             margin: 0 0 15px;
             color: #777;
         }
 
+        /* Styling for buttons */
         .button {
             display: inline-flex;
             align-items: center;
@@ -62,14 +103,17 @@
             cursor: pointer;
         }
 
+        /* Hover effect for buttons */
         .button:hover {
             background-color: #6ea2e7;
         }
 
+        /* Styling for arrow icon on button */
         .button span {
             margin-left: 10px;
         }
 
+        /* Custom arrow icon */
         .arrow-right {
             display: inline-block;
             width: 0;
@@ -80,10 +124,12 @@
             border-bottom: 4px solid transparent;
         }
 
+        /* Styling for the reminder form */
         .note-form {
             margin-top: 15px;
         }
 
+        /* Input and select fields styling */
         .note-form select, .note-form input, .note-form textarea {
             width: 100%;
             padding: 10px;
@@ -92,6 +138,7 @@
             border-radius: 5px;
         }
 
+        /* Reminder form buttons styling */
         .note-form button {
             margin-right: 10px;
         }
@@ -99,11 +146,12 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header for the AutoTune homepage -->
     <div class="home-header">
         AutoTunes
     </div>
 
+    <!-- Container holding various dashboard cards -->
     <div class="home-container">
 
         <!-- My Vehicle(s) Section -->
@@ -145,16 +193,25 @@
         <div class="home-card">
             <h2>Reminders</h2>
             <p>Add a new reminder</p>
+
+            <!-- Form for adding a reminder -->
             <form class="note-form">
+                <!-- Dropdown for selecting reminder type -->
                 <select>
                     <option>Vehicle Service</option>
                     <option>Vehicle Expense</option>
                     <option>General Note</option>
                 </select>
+
+                <!-- Input field for reminder title -->
                 <input type="text" placeholder="Enter Reminder Title">
+
+                <!-- Buttons for saving or canceling reminder -->
                 <button type="button" class="button" style="background-color: #87fa96;">Save</button>
                 <button type="button" class="button" style="background-color: #f18383;">Cancel</button>
             </form>
+
+            <!-- Link to view all reminders -->
             <a href="reminders.html" class="button">View All <span class="arrow-right"></span></a>
         </div>
 

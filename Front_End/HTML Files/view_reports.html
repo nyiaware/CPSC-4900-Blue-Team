@@ -1,3 +1,26 @@
+/*******************************************************
+ * File: view_reports.html
+ * Author: [Your Name]
+ * Co-Author(s): [List any other contributors]
+ * Project: AutoTunes
+ *
+ * Description:
+ * This HTML document serves as the page for viewing vehicle health reports in the AutoTunes platform.
+ * It displays a list of health reports associated with a vehicle and provides a button to navigate back to the dashboard.
+ *
+ * Major Components:
+ * - Vehicle Health Reports: A list displaying all available reports.
+ * - Back Button: Navigates the user back to the dashboard page.
+ *
+ * Usage Notes:
+ * - The list of reports (currently empty) will be populated dynamically via JavaScript as data becomes available.
+ * - Clicking the "Back to Dashboard" button redirects the user to 'vehicle_histoy.html' (update this URL as needed).
+ *
+ * Revision History:
+ * - [Date]: Initial page setup with placeholder for vehicle reports and navigation button.
+ *
+ *******************************************************/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,8 +91,9 @@
     </div>
 
     <script>
+        // Function to handle navigation back to the dashboard
         function goBack() {
-            window.location.href = 'vehicle_histoy.html';
+            window.location.href = 'vehicle_histoy.html'; // Make sure this URL is correct for your application
         }
     </script>
 
