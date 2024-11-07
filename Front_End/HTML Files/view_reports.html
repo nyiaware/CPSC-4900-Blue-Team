@@ -1,26 +1,3 @@
-/*******************************************************
- * File: view_reports.html
- * Author: [Your Name]
- * Co-Author(s): [List any other contributors]
- * Project: AutoTunes
- *
- * Description:
- * This HTML document serves as the page for viewing vehicle health reports in the AutoTunes platform.
- * It displays a list of health reports associated with a vehicle and provides a button to navigate back to the dashboard.
- *
- * Major Components:
- * - Vehicle Health Reports: A list displaying all available reports.
- * - Back Button: Navigates the user back to the dashboard page.
- *
- * Usage Notes:
- * - The list of reports (currently empty) will be populated dynamically via JavaScript as data becomes available.
- * - Clicking the "Back to Dashboard" button redirects the user to 'vehicle_histoy.html' (update this URL as needed).
- *
- * Revision History:
- * - [Date]: Initial page setup with placeholder for vehicle reports and navigation button.
- *
- *******************************************************/
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,13 +30,25 @@
             margin-bottom: 20px;
         }
 
-        ul {
-            list-style: none;
-            padding-left: 0;
+        .report-options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
         }
 
-        li {
-            margin-bottom: 10px;
+        .report-options button {
+            background-color: #fdfd38;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .report-options button:hover {
+            background-color: #d7d718;
         }
 
         .btn {
@@ -83,18 +72,71 @@
 
     <div class="reports-container">
         <h2>Vehicle Health Reports</h2>
-        <ul id="reportList">
-            <!-- added parts (later) -->
-        </ul>
+        <p>Selected Parts and Diagnostics:</p>
+        <ul id="reportList"></ul>
 
-        <button class="btn" onclick="goBack()">Back to Dashboard</button>
+        <div class="report-options">
+            <button onclick="downloadPDF()">Export as PDF</button>
+            <button onclick="emailReport()">Email Report</button>
+        </div>
+
+        <button onclick="goBack()" class="btn">Back to Dashboard</button>
     </div>
 
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <script>
-        // Function to handle navigation back to the dashboard
-        function goBack() {
-            window.location.href = 'vehicle_histoy.html'; // Make sure this URL is correct for your application
+        function loadReportData() {
+            const reportList = document.getElementById('reportList');
+            const parts = JSON.parse(localStorage.getItem('submittedParts')) || [];
+            reportList.innerHTML = '';
+
+            if (parts.length > 0) {
+                parts.forEach(part => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Part Name: ${part.name}, Part Number: ${part.number}`;
+                    reportList.appendChild(listItem);
+                });
+            } else {
+                reportList.innerHTML = 'No parts submitted.';
+            }
         }
+
+        // Download the report as PDF
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(18);
+            doc.text('Vehicle Health Report', 10, 10);
+            doc.setFontSize(12);
+            doc.text('Selected Parts and Diagnostics:', 10, 20);
+
+            const parts = JSON.parse(localStorage.getItem('submittedParts')) || [];
+            if (parts.length > 0) {
+                let yOffset = 30;
+                parts.forEach((part, index) => {
+                    doc.text(`${index + 1}. Part Name: ${part.name}, Part Number: ${part.number}`, 10, yOffset);
+                    yOffset += 10;
+                });
+            } else {
+                doc.text('No parts submitted.', 10, 30);
+            }
+
+            doc.save('Vehicle_Report.pdf');
+        }
+
+        // Placeholder for email
+        function emailReport() {
+            alert("Email functionality will be implemented later.");
+        }
+
+        function goBack() {
+            window.location.href = 'vehicle_history.html';
+        }
+
+        window.onload = loadReportData;
     </script>
 
 </body>

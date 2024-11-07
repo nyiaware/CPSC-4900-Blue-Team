@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTunes: Sign In</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .sign-in-container {
+            background-color: #eaecef;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .sign-in-btn {
+            background-color: #8ebefd;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        .sign-in-btn:hover {
+            background-color: #6ea2e7;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            text-align: left;
+        }
+        .social-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .google-btn {
+            background-color: #DB4437;
+        }
+        .google-btn:hover {
+            background-color: #b93b2f;
+        }
+        .facebook-btn {
+            background-color: #4267B2;
+            margin-bottom: 20px;
+        }
+        .facebook-btn:hover {
+            background-color: #365899;
+        }
+        a.social-link {
+            text-decoration: none; /* Removes underline from links */
+        }
+        .forgot-link, .signup-link {
+            font-size: 0.9em;
+            color: #333;
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+        .forgot-link:hover, .signup-link:hover {
+            text-decoration: underline;
+        }
+        .signup-link {
+            color: #6ea2e7;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">AutoTunes</div>
+    
+    <div class="sign-in-container">
+        <h2>Sign In</h2>
+        
+        <!-- Social Media Login Buttons with Icons -->
+        <a href="https://accounts.google.com" target="_blank" class="social-link">
+            <button class="social-btn google-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google icon"> Sign in with Google
+            </button>
+        </a>
+       
+        <a href="https://www.facebook.com" target="_blank" class="social-link">
+            <button class="social-btn facebook-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook icon"> Sign in with Facebook
+            </button>
+        </a>
+
+        <!-- Username and Password Login Form -->
+        <form action="SignIn.php" method="POST">
+            <label for="username">Log in with username</label>
+            <br>
+            <input type="text" id="username" name="username" class="input-field" placeholder="Enter your username" required>
+            <br>
+
+            <label for="password">Password</label>
+            <br>
+            <input type="password" id="password" name="password" class="input-field" minlength="8" required placeholder="Enter your password">
+            <br><br>
+
+            <input type="submit" value="Sign In" class="sign-in-btn">
+        </form>
+
+        <a href="#" class="forgot-link">Forgot Username / Password?</a>
+        <a href="sign_up.html" class="signup-link">Sign Up Now</a>
+    </div>
+
+</body>
+</html>

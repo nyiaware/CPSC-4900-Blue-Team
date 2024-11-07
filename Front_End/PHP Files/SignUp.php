@@ -1,20 +1,4 @@
-/*******************************************************
- * File: SignUp.php
- * Author: [Your Name]
- * Co-Author(s): [List any other contributors]
- * Project: AutoTunes
- *
- * Description:
- * This PHP script handles user registration by accepting username, email, and password.
- * It checks if the username or email already exists in the database, and inserts a new user record if they do not.
- * 
- * Major Components:
- * - Receives POST data (username, email, password) from a form submission.
- * - Checks if the username or email already exists in the 'users' table.
- * - Inserts a new user into the 'users' table if username and email are unique.
- *
- * Revision History:
- *   - [Date]: Initial version created to handle user sign-up.
+
  *******************************************************/
 
 <?php

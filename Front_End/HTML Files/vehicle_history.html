@@ -1,30 +1,3 @@
-/*******************************************************
- * File: vehicle_history.html
- * Author: [Your Name]
- * Co-Author(s): [List any other contributors]
- * Project: AutoTunes
- *
- * Description:
- * This HTML document serves as the Performance Tracking Dashboard for vehicles in the AutoTunes platform.
- * It displays a summary of vehicle information, performance tracking metrics (fuel efficiency, engine health, tire pressure), 
- * and planned maintenance updates. Users can submit vehicle metrics and view reports on recent activity.
- *
- * Major Components:
- * - Vehicle Summary: Displays vehicle details and a list of services.
- * - Performance Tracking: Form to submit metrics such as fuel efficiency, engine health, and tire pressure.
- * - Reports: A section to view the most recent reports and planned maintenance updates.
- *
- * Usage Notes:
- * - Ensure that vehicle details (year, make, model) are stored in localStorage.
- * - Submitted metrics will be saved in localStorage and displayed below the form.
- * - Clicking the "View All" buttons will lead to additional pages (like reports and maintenance planner).
- *
- * Revision History:
- * - [Date]: Initial dashboard creation with form for performance tracking.
- * - [Date]: Added vehicle details loading and metrics display functionality.
- * 
- *******************************************************/
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -225,7 +198,7 @@
     </div>
 
     <script>
-        // Function to load vehicle details stored in localStorage
+        // will change once we get our databases together
         function loadVehicleInfo() {
             var year = localStorage.getItem("vehicleYear");
             var make = localStorage.getItem("vehicleMake");
@@ -241,7 +214,7 @@
             }
         }
 
-        // Function to submit vehicle performance metrics and store them
+        // submit & display the metrics
         function submitMetrics() {
             const fuelEfficiency = document.getElementById('fuelEfficiency').value;
             const engineHealth = document.getElementById('engineHealth').value;
@@ -254,7 +227,7 @@
                     tirePressure
                 };
 
-                // Storing submitted metrics in localStorage
+                
                 const storedMetrics = JSON.parse(localStorage.getItem('vehicleMetrics')) || [];
                 storedMetrics.push(metrics);
                 localStorage.setItem('vehicleMetrics', JSON.stringify(storedMetrics));
@@ -265,7 +238,7 @@
             }
         }
 
-        // Function to display stored vehicle performance metrics
+        
         function displayMetrics() {
             const metricsList = document.getElementById('metricsList');
             const storedMetrics = JSON.parse(localStorage.getItem('vehicleMetrics')) || [];
@@ -282,7 +255,7 @@
             }
         }
 
-        // Load vehicle info and metrics on page load
+        // Load vehicle info and metrics on page
         window.onload = function() {
             loadVehicleInfo();
             displayMetrics();

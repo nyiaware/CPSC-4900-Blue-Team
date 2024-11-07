@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTunes: Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .sign-up-container {
+            background-color: #eaecef;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .sign-up-btn {
+            background-color: #8ebefd;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        .sign-up-btn:hover {
+            background-color: #6ea2e7;
+        }
+        .login-link {
+            font-size: 0.9em;
+            color: #333;
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">AutoTunes</div>
+    
+    <div class="sign-up-container">
+        <h2>Create Your Account</h2>
+
+        <!-- Sign Up Form -->
+        <form action="signup.php" method="POST">
+            <input type="text" name="name" class="input-field" placeholder="Full Name" required>
+            <input type="email" name="email" class="input-field" placeholder="Email" required>
+            <input type="password" name="password" class="input-field" placeholder="Password" required minlength="8">
+            <input type="password" name="confirm_password" class="input-field" placeholder="Confirm Password" required minlength="8">
+            
+            <button type="submit" class="sign-up-btn">Sign Up</button>
+        </form>
+
+        <!-- Link to the Sign In page -->
+        <a href="sign_in.html" class="login-link">Already have an account? Sign In</a>
+    </div>
+
+</body>
+</html>

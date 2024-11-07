@@ -1,28 +1,3 @@
-/*******************************************************
- * File: SignIn.php
- * Author: [Your Name]
- * Co-Author(s): [List any other contributors]
- * Project: AutoTunes
- *
- * Description:
- * This PHP script handles user authentication via username and password.
- * It fetches user details from the database and verifies the password using password_hash.
- * 
- * Major Components:
- * - Receives POST data (username, password) from a form submission.
- * - Fetches user details from the 'users' table.
- * - Verifies password using password_verify.
- * - Displays appropriate login status messages.
- *
- * Revision History:
- *   [Date]: Derika Rice
- *      - Initial version created to handle user sign-in.
- *   2024-11-06: Christian Morrow
- *      - Removed the redundant $conn = new mysqli(...) line.
- *      - Removed the duplicated query ($result = $conn->query("SELECT * FROM users WHERE username='$username'");).
- *      - Added session management (session_start() and setting session variables).
- *      - Handled user redirection after successful login (using header('Location: profile.html');).
- *******************************************************/
 
 <?php
 session_start();    // Start the session to track user login
