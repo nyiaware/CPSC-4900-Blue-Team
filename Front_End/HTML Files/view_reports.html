@@ -112,7 +112,7 @@
             doc.text('Vehicle Health Report', 10, 10);
             doc.setFontSize(12);
             doc.text('Selected Parts and Diagnostics:', 10, 20);
-
+ 
             const parts = JSON.parse(localStorage.getItem('submittedParts')) || [];
             if (parts.length > 0) {
                 let yOffset = 30;

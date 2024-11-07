@@ -1,7 +1,7 @@
 
 <?php
 session_start();    // Start the session to track user login
-
+ 
 // Database connection
 include 'db_autotune.php';
 

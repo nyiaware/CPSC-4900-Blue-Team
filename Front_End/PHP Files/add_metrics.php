@@ -1,7 +1,7 @@
 
 <?php
 include 'db_autotune.php';
-
+ 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fuel_efficiency = $_POST['fuel_efficiency'];
     $engine_health = $_POST['engine_health'];
