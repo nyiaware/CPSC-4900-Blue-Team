@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta information for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Page title and inline CSS for styling user settings page -->
     <title>User Settings</title>
     <style>
-        /* Styling for body */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -26,25 +22,21 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Header text for user settings */
         h2 {
             font-size: 1.8em;
             margin-bottom: 10px;
         }
 
-        /* Sub-text color for description */
         p {
             color: #777;
         }
 
-        /* Section title styling */
         .section-title {
             margin-top: 20px;
             margin-bottom: 10px;
             font-weight: bold;
         }
 
-        /* Input fields for personal information */
         input[type="text"], input[type="email"] {
             width: calc(100% - 20px);
             padding: 10px;
@@ -54,13 +46,11 @@
             font-size: 1em;
         }
 
-        /* Email notification settings layout */
         .email-settings {
             margin-top: 20px;
             margin-bottom: 20px;
         }
 
-        /* Label layout for email settings */
         .email-settings label {
             display: flex;
             justify-content: space-between;
@@ -68,7 +58,6 @@
             margin-bottom: 10px;
         }
 
-        /* Toggle switch styling */
         .toggle-switch {
             width: 40px;
             height: 20px;
@@ -79,7 +68,6 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Toggle switch button styling */
         .toggle-switch::before {
             content: "";
             width: 18px;
@@ -92,24 +80,20 @@
             transition: left 0.3s ease;
         }
 
-        /* Active state styling for toggle switch */
         .toggle-switch.active {
             background-color: #8ebefd;
         }
 
-        /* Positioning of toggle button in active state */
         .toggle-switch.active::before {
             left: 21px;
         }
 
-        /* Button container and layout */
         .buttons {
             margin-top: 20px;
             display: flex;
             justify-content: space-between;
         }
 
-        /* Styling for Save and Cancel buttons */
         .btn {
             display: inline-flex;
             justify-content: center;
@@ -126,13 +110,11 @@
             cursor: pointer;
         }
 
-        /* Hover effect for buttons */
         .btn:hover {
             background-color: #6ea2e7;
         }
     </style>
     <script>
-        /* Function to toggle switch state */
         function toggleSwitch(element) {
             element.classList.toggle('active');
         }
@@ -140,7 +122,6 @@
 </head>
 <body>
 
-    <!-- Main settings container for user information and preferences -->
     <div class="settings-container">
         <h2>User Settings</h2>
         <p>Fill down your personal info.</p>
