@@ -1,40 +1,38 @@
-
 <?php
-session_start();    // Start the session to track user login
- 
-// Database connection
 include 'db_autotune.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $conn->real_escape_string($_POST['username']);
+    // Capture and sanitize input
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
 
-    // Check if the username exists in the database
-    $sql = "SELECT * FROM users WHERE username='$username'";
-    $result = $conn->query($sql);
+    // Retrieve hashed password from database
+    $sql = "SELECT * FROM UserProfiles WHERE Username='$username'";
+    $result = mysqli_query($conn, $sql);
 
-    // Fetch the user by username
-    $result = $conn->query("SELECT * FROM users WHERE username='$username'");
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
 
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
+        // Verify the hashed password
+        if (password_verify($password, $row['HashedPassword'])) {
+            // Start a session if needed
+            session_start();
+            $_SESSION['username'] = $row['Username']; // Store username in session
+            $_SESSION['full_name'] = $row['FullName']; // Store full name in session (optional)
 
-         // Verify the password
-         if (password_verify($password, $user['password'])) {
-            // Start a session and store user information
-            $_SESSION['user_id'] = $user['user_id'];
-            $_SESSION['username'] = $user['username'];
-
-            // Redirect to the user's dashboard or homepage
-            header('Location: profile.html');
-            exit();
+            // Redirect to home.html
+            header("Location: home.html");
+            exit(); // Stop further execution to ensure the redirect happens
         } else {
-            echo "Incorrect password!";
+            // Redirect back to sign_in.html with an error message for invalid password
+            header("Location: sign_in.html?error=invalid_password");
+            exit();
         }
     } else {
-        echo "User not found!";
+        // Redirect back to sign_in.html with an error message for no user found
+        header("Location: sign_in.html?error=user_not_found");
+        exit();
     }
 }
-
-$conn->close();
+mysqli_close($conn);
 ?>

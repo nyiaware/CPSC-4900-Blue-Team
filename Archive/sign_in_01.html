@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoTunes: Sign In</title>
+    <link rel="stylesheet" href="css/main.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -88,15 +89,17 @@
         .google-btn:hover {
             background-color: #b93b2f;
         }
+        .apple-btn {
+            background-color: #333;
+        }
+        .apple-btn:hover {
+            background-color: #222;
+        }
         .facebook-btn {
             background-color: #4267B2;
-            margin-bottom: 20px;
         }
         .facebook-btn:hover {
             background-color: #365899;
-        }
-        a.social-link {
-            text-decoration: none;
         }
         .forgot-link, .signup-link {
             font-size: 0.9em;
@@ -120,48 +123,34 @@
     
     <div class="sign-in-container">
         <h2>Sign In</h2>
-
-        <!-- JavaScript to Show Popup Error Messages -->
-        <script>
-            function showError() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const error = urlParams.get('error');
-
-                if (error === 'invalid_password') {
-                    alert('Invalid password. Please try again.');
-                } else if (error === 'user_not_found') {
-                    alert('No user found with that username.');
-                }
-            }
-            window.onload = showError;
-        </script>
-
+        
         <!-- Social Media Login Buttons with Icons -->
-        <a href="https://accounts.google.com" target="_blank" class="social-link">
+        <a href="https://accounts.google.com" target="_blank">
             <button class="social-btn google-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google icon"> Sign in with Google
+                <img src="https://banner2.cleanpng.com/20240111/qtv/transparent-google-logo-colorful-google-logo-with-bold-green-1710929465092.webp" alt="Google icon"> Sign in with Google
             </button>
         </a>
-       
-        <a href="https://www.facebook.com" target="_blank" class="social-link">
+        <a href="https://appleid.apple.com" target="_blank">
+            <button class="social-btn apple-btn">
+                <img src="https://pngimg.com/uploads/apple_logo/apple_logo_PNG19680.png" alt="Apple icon"> Sign in with Apple
+            </button>
+        </a>
+        <a href="https://www.facebook.com" target="_blank">
             <button class="social-btn facebook-btn">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook icon"> Sign in with Facebook
             </button>
         </a>
 
-        <form action="SignIn.php" method="POST">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" class="input-field" placeholder="Enter your username" required>
-
-            <label for="password">Password</label>
-            <!-- Removed minlength attribute -->
-            <input type="password" id="password" name="password" class="input-field" required placeholder="Enter your password">
-
-            <input type="submit" value="Sign In" class="sign-in-btn">
+        <!-- Email and Password Login Form -->
+        <form action="signin.php" method="POST">
+            <input type="email" name="email" class="input-field" placeholder="Email" required>
+            <input type="password" name="password" class="input-field" placeholder="Password" required minlength="8">
+            
+            <button type="submit" class="sign-in-btn">Sign In</button>
         </form>
 
-        <a href="#" class="forgot-link">Forgot Password?</a>
-        <a href="sign_up_new.html" class="signup-link">Sign Up Now</a>
+        <a href="#" class="forgot-link">Forgot Username / Password?</a>
+        <a href="signup.html" class="signup-link">Sign Up Now</a>
     </div>
 
 </body>

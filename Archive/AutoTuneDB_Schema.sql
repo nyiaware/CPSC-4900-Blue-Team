@@ -1,3 +1,39 @@
+/* 
+    File: AutoTuneDB_Schema.sql
+    Author: Christian Morrow
+    Co-Author: Blanca Perez
+    Project: AutoTune
+
+    Description: 
+    This SQL script establishes the schema for the AutoTune database, which includes:
+        - User Profiles: Stores user account information with secure password handling.
+        - Vehicle Information: Contains details about vehicles linked to users.
+        - Service Maintenance: Logs maintenance records and related details.
+        - Diagnostics and Tuning: Stores diagnostic data and tuning parameters for vehicles.
+        - Audit Logs: Tracks user actions for auditing purposes.
+        - Notifications: Manages user notifications and their statuses.
+        - Payments: Records transaction details for services.
+        - User Settings: Saves customizable settings for user preferences.
+        - Service Reminders: Manages reminders for upcoming maintenance.
+        - Report Schedule: Handles scheduling of reports for users and vehicles.
+
+    Usage Notes:
+    - Ensure the script is executed in an SQL environment compatible with MySQL syntax.
+    - Verify that you have the necessary permissions to create databases and tables before execution.
+    - The command `DROP DATABASE IF EXISTS AutoTuneDB;` should be used with caution, as it will delete the database if it exists.
+
+    Revision History:
+    - 2024-10-09: Initial schema setup based on team and project specifications.
+    - 2024-11-02: Changes made include:
+        - Improved file identification comments.
+        - Renamed Password to HashedPassword in UserProfiles for clarity on encryption.
+        - Added Color and LicensePlate fields in VehicleInformation for more detailed vehicle data.
+        - Introduced Comments field in ServiceMaintenance for additional service notes.
+        - Enhanced AuditLogs with IP_Address and ActionDetails for robust auditing.
+        - Included NotificationType in Notifications to classify notifications (e.g., "Service Reminder," "Payment Confirmation").
+        - Created indexes on frequently queried fields to boost query performance.
+*/
+
 -- Drop the existing database if it exists (optional)
 DROP DATABASE IF EXISTS AutoTuneDB;
 
@@ -8,7 +44,6 @@ USE AutoTuneDB;
 -- Table for storing user profiles with encrypted password considerations
 CREATE TABLE UserProfiles (
     UserID INT AUTO_INCREMENT PRIMARY KEY, -- Unique identifier for each user
-    FullName VARCHAR(255), -- User's full name
     Username VARCHAR(255) NOT NULL, -- User's chosen username
     HashedPassword VARCHAR(255) NOT NULL, -- Hashed password for security
     Email VARCHAR(255), -- User's email address
