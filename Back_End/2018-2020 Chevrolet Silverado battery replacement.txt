@@ -1,0 +1,28 @@
+2018-2020 Chevrolet Silverado
+Tools Needed:
+
+Ratchet wrench, 10 mm socket, gloves, terminal cleaning tool, and a new battery (compatible with Silverado specifications).
+Prepare the Vehicle
+
+Park on a flat surface, turn off the engine, and engage the parking brake. Open the hood and locate the battery on the driver's side near the firewall.
+Disconnect the Battery Terminals
+
+Start with the negative terminal (black) using a 10 mm socket to loosen the clamp. Disconnect the positive terminal (red) afterward.
+Remove the Retaining Bracket
+
+Use the ratchet to remove the bolt securing the battery in place. Carefully lift the battery out of its tray.
+Clean the Battery Tray and Terminals
+
+Use a terminal cleaning tool to clean the terminal connectors and ensure the battery tray is free of debris or corrosion.
+Install the New Battery
+
+Place the new battery into the tray, ensuring the terminals are positioned correctly.
+Reconnect the Terminals
+
+Connect the positive terminal (red) first, then the negative terminal (black). Tighten both clamps securely.
+Secure the Battery
+
+Reinstall the retaining bracket and tighten it firmly.
+Check Connections
+
+Ensure the connections are tight, close the hood, and start the vehicle to verify proper installation.

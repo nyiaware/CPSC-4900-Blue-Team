@@ -1,0 +1,30 @@
+Honda CR-V (2018-2020)
+Turn Off the Vehicle
+
+Ensure the engine is off and remove the key.
+Locate the Battery
+
+Open the hood and find the battery near the front driver’s side corner of the engine bay.
+Disconnect the Battery Cables
+
+Use a 10mm wrench to remove the negative cable (black) first. Then, disconnect the positive cable (red).
+Remove the Battery Hold-Down Clamp
+
+Loosen and remove the clamp holding the battery in place.
+Lift Out the Old Battery
+
+Carefully lift the battery straight up and out, ensuring no damage to the surrounding components.
+Clean the Battery Terminals
+
+Use a terminal cleaner or a wire brush to remove corrosion and ensure a clean connection.
+Insert the New Battery
+
+Place a Group 35 battery in the tray, ensuring proper orientation (positive and negative terminals aligned correctly).
+Secure the Battery
+
+Reattach the hold-down clamp and tighten it securely.
+Reconnect the Battery Cables
+
+Attach the positive cable first, followed by the negative cable. Tighten the connections.
+Test the Battery
+

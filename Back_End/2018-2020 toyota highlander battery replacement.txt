@@ -1,0 +1,33 @@
+Toyota Highlander (2018-2020)
+Turn Off the Vehicle
+Make sure the vehicle is turned off completely.
+
+Locate the Battery
+Open the hood and find the battery near the passenger’s side firewall.
+
+Disconnect Battery Cables
+Remove the negative cable first, followed by the positive cable.
+
+Remove the Battery Cover
+If present, detach the protective plastic cover over the battery.
+
+Loosen the Battery Hold-Down Bracket
+Use a socket wrench to remove the clamp.
+
+Take Out the Old Battery
+Carefully lift the battery out, keeping it upright to avoid spills.
+
+Clean the Battery Tray and Terminals
+Use a wire brush or cleaner to ensure a good connection.
+
+Insert the New Battery
+Place a Group 24F battery into the tray, aligning it correctly.
+
+Secure the Battery
+Reattach the hold-down bracket and tighten it securely.
+
+Reconnect the Cables
+Attach the positive cable first, followed by the negative cable. Tighten both.
+
+Check the Replacement
+Start the vehicle to ensure the battery works correctly.
