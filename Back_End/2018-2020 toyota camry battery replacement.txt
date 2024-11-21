@@ -1,0 +1,30 @@
+Toyota Camry (2018-2020)
+Turn Off the Vehicle
+Ensure the ignition is off and remove the key.
+
+Locate the Battery
+Open the hood and find the battery near the driver’s side firewall.
+
+Disconnect Battery Cables
+Use a 10mm wrench to loosen and remove the negative cable (black). Repeat for the positive cable (red).
+
+Remove the Battery Hold-Down Bracket
+Unscrew the clamp securing the battery in place. Set the hardware aside.
+
+Lift Out the Old Battery
+Carefully remove the battery, noting its orientation.
+
+Inspect and Clean Connections
+Use a wire brush to remove corrosion from terminals.
+
+Insert the New Battery
+Place a Group 24F battery (recommended type) into the tray, ensuring proper polarity.
+
+Reconnect the Hold-Down Bracket
+Secure the battery using the previously removed bracket.
+
+Reconnect Battery Cables
+Attach the positive cable (red) first, followed by the negative cable (black). Tighten securely.
+
+Test the Installation
+Start the vehicle to ensure proper function.

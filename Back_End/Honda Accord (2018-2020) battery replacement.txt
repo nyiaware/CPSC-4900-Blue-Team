@@ -1,0 +1,31 @@
+Honda Accord (2018-2020)
+Turn Off the Vehicle
+
+Turn off the ignition and remove the key.
+Locate the Battery
+
+Open the hood and find the battery at the front center of the engine bay.
+Disconnect the Battery Cables
+
+Use a 10mm wrench to disconnect the negative cable first, then the positive cable.
+Remove the Battery Hold-Down Clamp
+
+Unscrew the bolts securing the clamp.
+Lift Out the Old Battery
+
+Carefully remove the old battery, noting its orientation.
+Inspect and Clean Connections
+
+Clean the terminals and tray to remove corrosion.
+Insert the New Battery
+
+Place a Group 24F battery in the tray, ensuring the correct orientation.
+Reattach the Hold-Down Clamp
+
+Tighten the clamp to keep the battery stable.
+Reconnect the Cables
+
+Attach the positive cable first, then the negative cable. Tighten them securely.
+Verify the Replacement
+
+Start the vehicle and ensure all systems are functioning properly.

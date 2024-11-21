@@ -1,0 +1,33 @@
+Toyota Corolla (2018-2020)
+Turn Off the Vehicle
+Turn off the engine and remove the key.
+
+Locate the Battery
+Open the hood and find the battery in the engine bay on the driver’s side.
+
+Disconnect Battery Cables
+Loosen and disconnect the negative cable first, followed by the positive cable.
+
+Remove the Battery Cover (if present)
+Detach the plastic cover that may be shielding the battery.
+
+Detach the Hold-Down Clamp
+Unscrew the retaining bracket holding the battery.
+
+Lift Out the Old Battery
+Carefully remove the battery, keeping it upright.
+
+Clean the Battery Tray and Terminals
+Use a terminal cleaner and check the tray for debris or corrosion.
+
+Install the New Battery
+Insert a Group 35 battery, matching the old battery’s orientation.
+
+Reattach the Hold-Down Clamp
+Tighten the clamp securely to prevent movement.
+
+Reconnect Battery Cables
+Connect the positive cable first, then the negative cable.
+
+Verify Installation
+Start the car to confirm the replacement is successful.

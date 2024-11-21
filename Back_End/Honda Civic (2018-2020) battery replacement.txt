@@ -1,0 +1,31 @@
+Honda Civic (2018-2020)
+Turn Off the Vehicle
+
+Turn off the engine and remove the key.
+Locate the Battery
+
+Open the hood and find the battery on the driver’s side near the firewall.
+Disconnect the Battery Cables
+
+Remove the negative cable (black) first, then the positive cable (red).
+Remove the Battery Hold-Down Bracket
+
+Loosen the bolts on the bracket securing the battery in place.
+Lift Out the Old Battery
+
+Carefully lift the battery out, keeping it upright.
+Clean the Battery Tray and Terminals
+
+Use a wire brush to clean the battery terminals and tray.
+Install the New Battery
+
+Place a Group 51R battery in the tray, ensuring proper alignment of the terminals.
+Secure the Battery
+
+Tighten the hold-down bracket to prevent battery movement.
+Reconnect the Battery Cables
+
+Attach the positive cable first, then the negative cable. Tighten both connections.
+Start and Test
+
+Start the car to confirm the battery is functioning correctly.
