@@ -39,6 +39,11 @@
             margin-bottom: 20px;
             color: #333;
         }
+        .message {
+            color: green;
+            margin-bottom: 15px;
+            display: none; /* Hidden by default */
+        }
         .input-field {
             width: 100%;
             padding: 12px;
@@ -80,8 +85,9 @@
     
     <div class="sign-up-container">
         <h2>Create Your Account</h2>
+        
+        <p id="successMessage" class="message">Account has been created</p>
 
-        <!-- Sign Up Form -->
         <form action="Signup.php" method="POST">
             <input type="text" name="full_name_test" class="input-field" placeholder="Full Name" required>
             <input type="text" name="username_test" class="input-field" placeholder="Username" required>
@@ -91,10 +97,15 @@
             <button type="submit" class="sign-up-btn">Sign Up</button>
         </form>
         
-
-        <!-- Link to the Sign In page -->
-        <a href="sign_in.html" class="login-link">Already have an account? Sign In</a>
+        <a href="sign_in.html" class="login-link">Go Back to Sign In</a>
     </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
