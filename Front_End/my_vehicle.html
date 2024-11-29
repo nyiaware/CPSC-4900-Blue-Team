@@ -51,7 +51,7 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 10px;
-            text-decoration: none; /* To remove underline */
+            text-decoration: none;
         }
 
         .button:hover {
@@ -61,15 +61,13 @@
 </head>
 <body>
 
-    <!-- Header -->
     <div class="header">AutoTunes</div>
 
-    <!-- Container -->
     <div class="container">
         <h2>Select Your Vehicle</h2>
 
         <!-- Year Dropdown -->
-        <label for="yearSelect">Choose Vehicle Year (2018-2022):</label>
+        <label for="yearSelect">Choose Vehicle Year:</label>
         <select id="yearSelect" onchange="populateMakes()">
             <option value="">--Select Year--</option>
             <option value="2018">2018</option>
@@ -90,24 +88,11 @@
 
         <!-- Model Dropdown -->
         <label for="modelSelect">Choose Vehicle Model:</label>
-        <select id="modelSelect" onchange="populateTrimOptions()">
+        <select id="modelSelect">
             <option value="">--Select Model--</option>
         </select>
 
-        <!-- Trim Dropdown -->
-        <label for="trimSelect">Choose Trim:</label>
-        <select id="trimSelect" onchange="populateEngineOptions()">
-            <option value="">--Select Trim--</option>
-        </select>
-
-        <!-- Engine Type Dropdown -->
-        <label for="engineSelect">Choose Engine Type:</label>
-        <select id="engineSelect">
-            <option value="">--Select Engine--</option>
-        </select>
-
         <button class="button" onclick="saveVehicle()">Save Vehicle</button>
-        <button class="button" onclick="removeVehicle()">Remove Vehicle</button>
         <a href="home.html" class="button">Cancel</a>
     </div>
 
@@ -138,50 +123,30 @@
             }
         }
 
-        function populateTrimOptions() {
-            // Populate trims based on selected model (example trims for simplicity)
-            const trimSelect = document.getElementById('trimSelect');
-            trimSelect.innerHTML = '<option value="">--Select Trim--</option>';
-            const exampleTrims = ['Base', 'Sport', 'Premium'];
-            exampleTrims.forEach(trim => {
-                const option = document.createElement('option');
-                option.value = trim;
-                option.text = trim;
-                trimSelect.add(option);
-            });
-        }
-
-        function populateEngineOptions() {
-            // Populate engine types based on selected trim (example engines for simplicity)
-            const engineSelect = document.getElementById('engineSelect');
-            engineSelect.innerHTML = '<option value="">--Select Engine--</option>';
-            const exampleEngines = ['2.0L', '3.5L', 'Hybrid'];
-            exampleEngines.forEach(engine => {
-                const option = document.createElement('option');
-                option.value = engine;
-                option.text = engine;
-                engineSelect.add(option);
-            });
-        }
-
         function saveVehicle() {
             const year = document.getElementById('yearSelect').value;
             const make = document.getElementById('makeSelect').value;
             const model = document.getElementById('modelSelect').value;
-            const trim = document.getElementById('trimSelect').value;
-            const engine = document.getElementById('engineSelect').value;
 
             if (year && make && model) {
-                // Code to save vehicle in the database (e.g., AJAX to a PHP endpoint)
-                alert(`Vehicle Saved: ${year} ${make} ${model} ${trim} ${engine}`);
+                fetch('add_vehicle.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ year, make, model })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Vehicle saved/updated successfully.");
+                        window.location.reload();
+                    } else {
+                        alert("Failed to save vehicle: " + data.message);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
             } else {
                 alert("Please complete all selections.");
             }
-        }
-
-        function removeVehicle() {
-            // Code to remove vehicle from the database (e.g., AJAX to a PHP endpoint)
-            alert("Vehicle has been removed.");
         }
     </script>
 
