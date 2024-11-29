@@ -3,160 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Settings</title>
+    <title>Update Profile</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
- 
-        /* Settings container styling */
-        .settings-container {
+
+        .profile-container {
             background-color: #eaecef;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 400px;
-            margin: 0 auto;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
         }
 
         h2 {
             font-size: 1.8em;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
         }
 
-        p {
-            color: #777;
-        }
-
-        .section-title {
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        input[type="text"], input[type="email"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 10px;
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1em;
         }
 
-        .email-settings {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .email-settings label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .toggle-switch {
-            width: 40px;
-            height: 20px;
-            background-color: #ccc;
-            border-radius: 15px;
-            position: relative;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .toggle-switch::before {
-            content: "";
-            width: 18px;
-            height: 18px;
-            background-color: #fff;
-            border-radius: 50%;
-            position: absolute;
-            top: 1px;
-            left: 1px;
-            transition: left 0.3s ease;
-        }
-
-        .toggle-switch.active {
-            background-color: #8ebefd;
-        }
-
-        .toggle-switch.active::before {
-            left: 21px;
-        }
-
-        .buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-
         .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
             background-color: #8ebefd;
-            color: black;
-            padding: 10px 15px;
+            color: white;
+            padding: 12px 20px;
+            border: none;
             border-radius: 5px;
             font-weight: bold;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            width: 45%;
-            text-align: center;
+            font-size: 1em;
             cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
         }
 
         .btn:hover {
             background-color: #6ea2e7;
         }
-    </style>
-    <script>
-        function toggleSwitch(element) {
-            element.classList.toggle('active');
+
+        .link {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+            text-decoration: none;
+            color: #333;
         }
-    </script>
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="settings-container">
-        <h2>User Settings</h2>
-        <p>Fill down your personal info.</p>
-
-        <!-- Start of form for updating user settings -->
+    <div class="profile-container">
+        <h2>Update Your Profile</h2>
         <form method="POST" action="save_profile.php">
-            <!-- Personal information section with input fields -->
-            <div class="section-title">Personal Info</div>
-            <input type="text" name="first_name" value="" placeholder="First Name">
-            <input type="text" name="last_name" value="" placeholder="Last Name">
-            <input type="email" name="email" value="" placeholder="Email">
-
-            <!-- Email notification preferences section with checkboxes -->
-            <div class="section-title">Email Notifications</div>
-            <div class="email-settings">
-                <label>
-                    Urgent Services
-                    <input type="checkbox" name="urgent_services" id="urgent_services">
-                </label>
-                <label>
-                    Monthly Reports
-                    <input type="checkbox" name="monthly_reports" id="monthly_reports">
-                </label>
-                <label>
-                    Maintenance Suggestions
-                    <input type="checkbox" name="maintenance_suggestions" id="maintenance_suggestions">
-                </label>
-            </div>
-
-            <!-- Buttons to save changes or cancel and go back -->
-            <div class="buttons">
-                <button type="submit" class="btn">Save</button>
-                <a href="home.html" class="btn">Cancel</a>
-            </div>
+            <input type="text" name="FullName" class="input-field" placeholder="Full Name" required>
+            <input type="text" name="Username" class="input-field" placeholder="Username" required>
+            <input type="email" name="Email" class="input-field" placeholder="Email" required>
+            <input type="password" name="Password" class="input-field" placeholder="New Password (not required)">
+            <button type="submit" class="btn">Save Changes</button>
         </form>
+        <a href="home.html" class="link">Cancel</a>
     </div>
 
 </body>

@@ -1,30 +1,36 @@
 <?php
 include 'db_autotune.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "<pre>";
-    print_r($_POST); // Display the entire $_POST array for debugging
-    echo "</pre>";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $fullName = $_POST['full_name_test'];
+    $username = $_POST['username_test'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirm_password'];
 
-    $full_name = mysqli_real_escape_string($conn, $_POST['full_name_test']);
-    $username = mysqli_real_escape_string($conn, $_POST['username_test']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
+    if ($password === $confirmPassword) {
+        // Hash the password
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    if ($password === $confirm_password) {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // Prepare SQL statement to insert user data into the 'userprofiles' table
+        $sql = "INSERT INTO userprofiles (FullName, Username, Email, HashedPassword, RegistrationDate) 
+                VALUES (?, ?, ?, ?, NOW())";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss", $fullName, $username, $email, $hashedPassword);
 
-        $sql = "INSERT INTO UserProfiles (FullName, Username, HashedPassword, Email) VALUES ('$full_name', '$username', '$hashed_password', '$email')";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "Registration successful. <a href='sign_in.html'>Sign In</a>";
+        if ($stmt->execute()) {
+            // Redirect back to sign_up_new.html with success message
+            header("Location: sign_up_new.html?success=true");
+            exit();
         } else {
-            echo "Error: " . mysqli_error($conn);
+            echo "Error: " . $stmt->error;
         }
+
+        $stmt->close();
     } else {
         echo "Passwords do not match.";
     }
 }
-mysqli_close($conn);
+
+$conn->close();
 ?>

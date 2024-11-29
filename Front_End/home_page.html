@@ -3,110 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoTunes: Home</title>
+    <title>AutoTunes: Home Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
             margin: 0;
+            padding: 0;
         }
 
         .header {
             background-color: #333;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
             color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 2em;
-            font-weight: bold;
+        }
+
+        .header img {
+            height: 50px;
+            margin-right: 20px;
         }
 
         .navbar {
-            background-color: #eaecef;
-            padding: 10px 20px;
+            margin-left: auto;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 15px;
         }
 
         .navbar a {
-            color: #333;
+            color: white;
             text-decoration: none;
-            margin: 0 10px;
             font-weight: bold;
+            padding: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+            border-radius: 5px;
         }
 
         .main-content {
+            background: url('Images/background.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            height: 80vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 50px;
         }
 
         .main-content h1 {
             font-size: 3em;
-            color: #333;
+            margin-bottom: 20px;
         }
 
         .main-content p {
-            color: #777;
-            font-size: 1.2em;
+            font-size: 1.5em;
+            margin-bottom: 30px;
         }
 
-        .get-started-btn {
+        .main-content .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-content .button {
             background-color: #8ebefd;
             color: black;
             padding: 15px 30px;
-            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1em;
-            margin-top: 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
 
-        .get-started-btn:hover {
-            background-color: #6ea2e7;
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .auth-buttons a {
-            padding: 10px 20px;
-            background-color: #8ebefd;
-            color: black;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .auth-buttons a:hover {
+        .main-content .button:hover {
             background-color: #6ea2e7;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">AutoTunes</div>
-    
-    <div class="navbar">
-        <a href="#">Home</a>
-        <a href="about.html">About</a>
-        <div class="auth-buttons">
+    <div class="header">
+        <img src="Images/02_Brand Logo.png" alt="AutoTune Logo">
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="about.html">About</a>
             <a href="sign_in.html">Log In</a>
             <a href="sign_up_new.html">Sign Up</a>
         </div>
     </div>
 
     <div class="main-content">
-        <h1>Product</h1>
-        <p>Brand new product</p>
-        <a href="sign_up_new.html" class="get-started-btn">Get Started</a>
-    </div>
+        <h1>Experience the Future of Automotive</h1>
+        <p>Find the right service and guidance for your car.</p>
+        <div class="buttons">
+            <a href="sign_in.html" class="button">Find Your Service</a>
+            <a href="about.html" class="button">Our Team</a>
+        </div>
+    </div>    
 
 </body>
 </html>

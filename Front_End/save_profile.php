@@ -1,34 +1,40 @@
 <?php
-session_start();
- 
 include 'db_autotune.php';
 
-if (!isset($_SESSION['user_id'])) {
+session_start();
 
-    header("Location: login.php");
-    exit();
-}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get user inputs
+    $fullName = $_POST['FullName'];
+    $username = $_POST['Username'];
+    $email = $_POST['Email'];
+    $password = $_POST['Password'];
 
-$user_id = $_SESSION['user_id'];
+    $userId = $_SESSION['UserID'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $first_name = $conn->real_escape_string($_POST['first_name']);
-    $last_name = $conn->real_escape_string($_POST['last_name']);
-    $email = $conn->real_escape_string($_POST['email']);
+    $sql = "UPDATE userprofiles SET FullName = ?, Username = ?, Email = ?" . 
+           (!empty($password) ? ", HashedPassword = ?" : "") . 
+           " WHERE UserID = ?";
+    $stmt = $conn->prepare($sql);
 
-    $urgent_services = isset($_POST['urgent_services']) ? 1 : 0;
-    $monthly_reports = isset($_POST['monthly_reports']) ? 1 : 0;
-    $maintenance_suggestions = isset($_POST['maintenance_suggestions']) ? 1 : 0;
+    if (!empty($password)) {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bind_param("ssssi", $fullName, $username, $email, $hashedPassword, $userId);
+    } else {
+        $stmt->bind_param("sssi", $fullName, $username, $email, $userId);
+    }
 
-    $sql = "UPDATE users SET first_name='$first_name', last_name='$last_name', email='$email', 
-            urgent_services=$urgent_services, monthly_reports=$monthly_reports, 
-            maintenance_suggestions=$maintenance_suggestions WHERE user_id=$user_id";
+    // Execute the query
+    if ($stmt->execute()) {
 
-    if ($conn->query($sql) === TRUE) {
-        header("Location: profile.php");
+        header("Location: profile.html?success=true");
         exit();
     } else {
-        echo "Error updating record: " . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
 }
+
+$conn->close();
 ?>
