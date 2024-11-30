@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Weekly Planner with Reminders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .planner {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .planner th, .planner td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+        .planner th {
+            background-color: #d7d718;
+            text-align: center;
+        }
+        .planner td {
+            height: 150px;
+            vertical-align: top;
+        }
+        .day-header {
+            background-color: #d7d718;
+            color: #f5f5f5;
+        }
+        .task-select {
+            width: 90%;
+            margin-bottom: 5px;
+        }
+        .reminder {
+            color: #f5f5f5;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maintenance Planner</h1>
+    <table class="planner">
+        <thead>
+            <tr>
+                <th class="day-header">Reminders</th>
+            </tr>
+        </head>
+        <tbody>
+            <tr>
+                <td>
+                    <select class="task-select">
+                        <option value="">Select task</option>
+                        <option value="Task 1">Air Filter</option>
+                        <option value="Task 2">Battery Check</option>
+                        <option value="Task 3">Oil Change</option>
+                        <option value="Task 4">Rotate Tires</option>
+                        <option value="Task 5">Spark Plugs</option>
+                        <option value="Task 6">Windshield Wipers</option>
+                    </select>
+                    <input type="datetime-local" class="reminder-time">
+                    <button onclick="setReminder(this)">Submit Reminder</button>
+                    <div class="reminder"></div>
+                </td>
+    <script>
+        function setReminder(button) {
+            const taskSelect = button.previousElementSibling.previousElementSibling;
+            const reminderTimeInput = button.previousElementSibling;
+            const reminderDiv = button.nextElementSibling;
+            const task = taskSelect.value;
+            const reminderTime = new Date(reminderTimeInput.value);
+
+            if (task && reminderTime) {
+                const now = new Date();
+                const timeDifference = reminderTime - now;
+
+                if (timeDifference > 0) {
+                    setTimeout(() => {
+                        reminderDiv.textContent = `Reminder: ${task}`;
+                    }, timeDifference);
+                } else {
+                    alert("Select your date and time reminder.");
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
