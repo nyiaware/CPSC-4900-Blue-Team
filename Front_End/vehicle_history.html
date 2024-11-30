@@ -11,6 +11,16 @@
             margin: 0;
             padding: 20px;
         }
+        .back {
+            background-color: #fdfd38; 
+            color: black;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+}
 
         .dashboard-container {
             display: flex;
@@ -22,7 +32,7 @@
             padding: 20px;
             border-radius: 10px;
             width: 60%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
         }
 
         .side-container {
@@ -36,7 +46,7 @@
             background-color: #eaecef;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
             text-align: center;
         }
 
@@ -133,15 +143,7 @@
 
     </style>
 </head>
-<body>
-
-    <div class="dashboard-header">
-        <div class="side-card">
-            <h1>Dashboard</h1>
-            <a href="maintenance_planner.html" class="btn">View All</a>
-        </div>
-
-    </div>
+<body> 
 
     <div class="dashboard-container">
 
@@ -151,6 +153,7 @@
             <div class="vehicle-info">
                 <p id="vehicleDetails"></p>
             </div>
+            
             <ul class="service-list">
                 <li>Engine</li>
                 <li>Drive</li>
@@ -161,7 +164,6 @@
             </ul>
             <a href="#" class="btn">View All</a>
         </div>
-
         
         <div class="side-container">
            
@@ -183,6 +185,7 @@
                 <h4>Submitted Metrics</h4>
                 <ul id="metricsList"></ul>
             </div>
+            
 
             
             <div class="side-card">
@@ -196,8 +199,19 @@
                 <a href="maintenance_planner.html">
                     <button class="maintenance-planner btn-center">Maintenance Planner</button>
                 </a>
+                <div>
+                    
+                    <br>
+                
         </div>
+    </div class= "back-button">
+    <a href="home.html">
+        <button class="back btn-right">Back</button>
+    </a>
+</div>
+        
     </div>
+    
 
     <script>
         // will change once we get our databases together
