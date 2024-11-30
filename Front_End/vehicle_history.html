@@ -136,8 +136,11 @@
 <body>
 
     <div class="dashboard-header">
-        <h1>Dashboard</h1>
-        <button class="maintenance-planner btn-right">Maintenance Planner</button>
+        <div class="side-card">
+            <h1>Dashboard</h1>
+            <a href="maintenance_planner.html" class="btn">View All</a>
+        </div>
+
     </div>
 
     <div class="dashboard-container">
@@ -149,12 +152,12 @@
                 <p id="vehicleDetails"></p>
             </div>
             <ul class="service-list">
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
+                <li>Engine</li>
+                <li>Drive</li>
+                <li>Transmission</li>
+                <li>Fill</li>
+                <li>Fill</li>
+                <li>Fill</li>
             </ul>
             <a href="#" class="btn">View All</a>
         </div>
@@ -184,16 +187,15 @@
             
             <div class="side-card">
                 <h3>View Reports</h3>
-                <p>25 Most Recent</p>
                 <a href="view_reports.html" class="btn">View All</a>
             </div>
 
             <!-- Planned Maintenance -->
             <div class="side-card">
                 <h3>Planned Maintenance</h3>
-                <p>2 Upcoming</p>
-                <a href="#" class="btn">View All</a>
-            </div>
+                <a href="maintenance_planner.html">
+                    <button class="maintenance-planner btn-center">Maintenance Planner</button>
+                </a>
         </div>
     </div>
 
@@ -237,7 +239,7 @@
                 alert("Please fill in all the fields.");
             }
         }
-
+ 
         
         function displayMetrics() {
             const metricsList = document.getElementById('metricsList');
