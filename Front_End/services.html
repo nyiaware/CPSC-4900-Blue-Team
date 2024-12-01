@@ -20,9 +20,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
             margin-top: 20px;
-}
-
-
+        }
         .container {
             background-color: #eaecef;
             padding: 20px;
@@ -32,18 +30,15 @@
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-
         h2 {
             font-size: 1.8em;
             margin-bottom: 20px;
         }
-
         label, select {
             font-size: 1.1em;
             display: block;
             margin-bottom: 10px;
         }
-
         .button {
             background-color: #8ebefd;
             color: black;
@@ -55,19 +50,15 @@
             display: inline-block;
             transition: background-color 0.3s;
         }
-
         .button:hover {
             background-color: #6ea2e7;
         }
-
         .btn-right {
             float: right;
         }
-
         h2#serviceHeader {
             margin-top: 30px;
         }
-
         #instructions {
             text-align: left;
             margin-top: 20px;
@@ -99,11 +90,11 @@
         <div id="instructions"></div>
     </div>
     <br>
-</div class= "back-button">
-<a href="home.html">
-    <button class="back btn-right">Back</button>
-</a>
-</div>
+    <div class="back-button">
+        <a href="home.html">
+            <button class="back btn-right">Back</button>
+        </a>
+    </div>
 
     <script>
     // Load the selected vehicle from localStorage
@@ -115,18 +106,40 @@
         if (vehicle) {
             vehicleDisplay.textContent = "Selected Vehicle: " + vehicle;
 
-            // Populate the service dropdown based on the selected vehicle
-            if (vehicle === "2019 Honda Accord") {
-                serviceSelect.innerHTML = '<option value="Honda.txt">Oil Filter Replacement</option>';
-            } else if (vehicle === "2021 Nissan Rogue") {
-                serviceSelect.innerHTML = '<option value="Nissan.txt">Air Filter Replacement</option>';
-            } else if (vehicle === "2018 Chevrolet Silverado 1500") {
-                serviceSelect.innerHTML = '<option value="Chevy.txt">Spark Plug Replacement</option>';
-            }
+            // Populate the service dropdown based on the selected vehicle (excluding the year)
+            var services = [];
+
+            // Define available services for all models
+            const serviceList = [
+                'Silverado_oilchange', 'Silverado_tirerotation', 'Silverado_batteryreplacement',
+                'Camaro_oilchange', 'Camaro_tirerotation', 'Camaro_batteryreplacement',
+                'Equinox_oilchange', 'Equinox_tirerotation', 'Equinox_batteryreplacement',
+                'Accord_oilchange', 'Accord_tirerotation', 'Accord_batteryreplacement',
+                'Civic_oilchange', 'Civic_tirerotation', 'Civic_batteryreplacement',
+                'CRV_oilchange', 'CRV_tirerotation', 'CRV_batteryreplacement',
+                'Camry_oilchange', 'Camry_tirerotation', 'Camry_batteryreplacement',
+                'Corolla_oilchange', 'Corolla_tirerotation', 'Corolla_batteryreplacement',
+                'Highlander_oilchange', 'Highlander_tirerotation', 'Highlander_batteryreplacement'
+            ];
+
+            // Filter and populate the service dropdown for the selected vehicle
+            serviceList.forEach(service => {
+                if (vehicle.includes(service.split('_')[0])) {
+                    services.push(service);
+                }
+            });
+
+            // Populate the dropdown with the services
+            services.forEach(service => {
+                var option = document.createElement('option');
+                option.value = service + '.txt';
+                option.textContent = service.replace('_', ' ').replace(/([a-z])([A-Z])/g, '$1 $2');  // Format service names
+                serviceSelect.appendChild(option);
+            });
+
         } else {
             vehicleDisplay.textContent = "No vehicle selected.";
         }
-
     }
  
     // Load service instructions
