@@ -54,6 +54,6 @@ if ($year && $make && $model) {
 } else {
     echo json_encode(["success" => false, "message" => "Invalid data provided."]);
 }
-
+ 
 $conn->close();
 ?>
