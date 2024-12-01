@@ -11,6 +11,17 @@
             margin: 0;
             padding: 20px;
         }
+        .back {
+            background-color: #8ebefd; 
+            color: black;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+}
+
 
         .container {
             background-color: #eaecef;
@@ -49,6 +60,10 @@
             background-color: #6ea2e7;
         }
 
+        .btn-right {
+            float: right;
+        }
+
         h2#serviceHeader {
             margin-top: 30px;
         }
@@ -83,6 +98,12 @@
         <h2 id="serviceHeader"></h2>
         <div id="instructions"></div>
     </div>
+    <br>
+</div class= "back-button">
+<a href="home.html">
+    <button class="back btn-right">Back</button>
+</a>
+</div>
 
     <script>
     // Load the selected vehicle from localStorage
@@ -105,6 +126,7 @@
         } else {
             vehicleDisplay.textContent = "No vehicle selected.";
         }
+
     }
  
     // Load service instructions

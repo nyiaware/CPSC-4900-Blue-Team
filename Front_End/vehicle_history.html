@@ -11,6 +11,16 @@
             margin: 0;
             padding: 20px;
         }
+        .back {
+            background-color: #fdfd38; 
+            color: black;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+}
 
         .dashboard-container {
             display: flex;
@@ -22,7 +32,7 @@
             padding: 20px;
             border-radius: 10px;
             width: 60%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
         }
 
         .side-container {
@@ -36,7 +46,7 @@
             background-color: #eaecef;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
             text-align: center;
         }
 
@@ -133,12 +143,7 @@
 
     </style>
 </head>
-<body>
-
-    <div class="dashboard-header">
-        <h1>Dashboard</h1>
-        <button class="maintenance-planner btn-right">Maintenance Planner</button>
-    </div>
+<body> 
 
     <div class="dashboard-container">
 
@@ -148,17 +153,17 @@
             <div class="vehicle-info">
                 <p id="vehicleDetails"></p>
             </div>
+            
             <ul class="service-list">
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
+                <li>Engine</li>
+                <li>Drive</li>
+                <li>Transmission</li>
+                <li>Fill</li>
+                <li>Fill</li>
+                <li>Fill</li>
             </ul>
             <a href="#" class="btn">View All</a>
         </div>
-
         
         <div class="side-container">
            
@@ -180,22 +185,33 @@
                 <h4>Submitted Metrics</h4>
                 <ul id="metricsList"></ul>
             </div>
+            
 
             
             <div class="side-card">
                 <h3>View Reports</h3>
-                <p>25 Most Recent</p>
                 <a href="view_reports.html" class="btn">View All</a>
             </div>
 
             <!-- Planned Maintenance -->
             <div class="side-card">
                 <h3>Planned Maintenance</h3>
-                <p>2 Upcoming</p>
-                <a href="#" class="btn">View All</a>
-            </div>
+                <a href="maintenance_planner.html">
+                    <button class="maintenance-planner btn-center">Maintenance Planner</button>
+                </a>
+                <div>
+                    
+                    <br>
+                
         </div>
+    </div class= "back-button">
+    <a href="home.html">
+        <button class="back btn-right">Back</button>
+    </a>
+</div>
+        
     </div>
+    
 
     <script>
         // will change once we get our databases together
@@ -237,7 +253,7 @@
                 alert("Please fill in all the fields.");
             }
         }
-
+ 
         
         function displayMetrics() {
             const metricsList = document.getElementById('metricsList');
