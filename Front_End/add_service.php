@@ -2,6 +2,55 @@
 // Include the database connection
 include 'db_autotune.php';
 
+// Function to load service names from .txt files
+function loadServicesFromFiles() {
+    $services = [];
+    
+    // Define the service files
+    $serviceFiles = [
+        'Silverado_oilchange.txt',
+        'Silverado_tirerotation.txt',
+        'Silverado_batteryreplacement.txt',
+        'Camaro_oilchange.txt',
+        'Camaro_tirerotation.txt',
+        'Camaro_batteryreplacement.txt',
+        'Equinox_oilchange.txt',
+        'Equinox_tirerotation.txt',
+        'Equinox_batteryreplacement.txt',
+        'Accord_oilchange.txt',
+        'Accord_tirerotation.txt',
+        'Accord_batteryreplacement.txt',
+        'Civic_oilchange.txt',
+        'Civic_tirerotation.txt',
+        'Civic_batteryreplacement.txt',
+        'CRV_oilchange.txt',
+        'CRV_tirerotation.txt',
+        'CRV_batteryreplacement.txt',
+        'Camry_oilchange.txt',
+        'Camry_tirerotation.txt',
+        'Camry_batteryreplacement.txt',
+        'Corolla_oilchange.txt',
+        'Corolla_tirerotation.txt',
+        'Corolla_batteryreplacement.txt',
+        'Highlander_oilchange.txt',
+        'Highlander_tirerotation.txt',
+        'Highlander_batteryreplacement.txt'
+    ];
+
+    // Loop through the files and load service names
+    foreach ($serviceFiles as $file) {
+        if (file_exists($file)) {
+            $fileContent = file_get_contents($file);
+            // Trim any extra whitespace and add it to the services array
+            $services[] = trim($fileContent);
+        } else {
+            echo "Error: File $file not found.<br>";
+        }
+    }
+
+    return $services;
+}
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect the form data
