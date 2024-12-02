@@ -2,6 +2,9 @@
 // Include the database connection
 include 'db_autotune.php';
 
+// Start the session to access session variables
+session_start();
+
 // Function to load service names from .txt files
 function loadServicesFromFiles() {
     $services = [];
@@ -57,7 +60,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $service_name = $_POST['service_name'];
     $part_name = $_POST['part_name'];
     $part_number = $_POST['part_number'];
-    $vehicle_id = 1;  // Placeholder, this should be dynamically set based on the user's vehicle
+
+    // Check if the user is logged in and their vehicle_id is available in the session
+    if (isset($_SESSION['vehicle_id'])) {
+        $vehicle_id = $_SESSION['vehicle_id'];
+    } else {
+        // Fallback if no vehicle_id is available (e.g., redirect to login or error page)
+        echo "Error: Vehicle ID is not set.";
+        exit();
+    }
 
     // Prepare the SQL query to insert service data into the database
     $sql = "INSERT INTO services (vehicle_id, service_name, part_name, part_number) 
