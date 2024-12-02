@@ -55,10 +55,13 @@
             <label for="serviceSelect">Select a Service:</label>
             <select id="serviceSelect" name="service_name">
                 <option value="">--Select Service--</option>
-                <!-- Populate this dynamically or manually list services -->
-                <option value="Oil Change">Oil Change</option>
-                <option value="Tire Rotation">Tire Rotation</option>
-                <option value="Battery Replacement">Battery Replacement</option>
+                <?php
+                // Call the PHP function to load the services from the files
+                $services = loadServicesFromFiles();
+                foreach ($services as $service) {
+                    echo "<option value='$service'>$service</option>";
+                }
+                ?>
             </select>
             
             <!-- Input fields for part information -->
