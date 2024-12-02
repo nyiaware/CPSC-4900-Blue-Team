@@ -1,282 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoTunes: Performance Tracking Dashboard</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoTunes: Performance Tracking Dashboard</title>
+<style>
+
         body {
+
             font-family: Arial, sans-serif;
+
             background-color: #f5f5f5;
+
             margin: 0;
+
             padding: 20px;
+
         }
+
         .back {
+
             background-color: #fdfd38; 
+
             color: black;
+
             padding: 10px 15px;
+
             border-radius: 5px;
+
             font-weight: bold;
+
             cursor: pointer;
+
             transition: background-color 0.3s;
+
             margin-top: 20px;
-}
 
-        .dashboard-container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .summary-container {
-            background-color: #eaecef;
-            padding: 20px;
-            border-radius: 10px;
-            width: 60%;
-            box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
-        }
-
-        .side-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 35%;
-        }
-
-        .side-card {
-            background-color: #eaecef;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h2, h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-
-        h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .vehicle-info {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .service-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .count {
-            font-weight: bold;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: #fdfd38;
-            color: black;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #d7d718;
-        }
-
-        .btn-right {
-            float: right;
-        }
-
-        .maintenance-planner {
-            background-color: #fdfd38;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .maintenance-planner:hover {
-            background-color: #d7d718;
-        }
-
-        .metrics-form label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .metrics-form input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-    </style>
-</head>
-<body> 
-
-    <div class="dashboard-container">
-
-        <!-- Vehicle Summary  -->
-        <div class="summary-container">
-            <h2>Vehicle Summary</h2>
-            <div class="vehicle-info">
-                <p id="vehicleDetails"></p>
-            </div>
-            
-            <ul class="service-list">
-                <li>Engine</li>
-                <li>Drive</li>
-                <li>Transmission</li>
-                <li>Fill</li>
-                <li>Fill</li>
-                <li>Fill</li>
-            </ul>
-            <a href="#" class="btn">View All</a>
-        </div>
-        
-        <div class="side-container">
-           
-            <div class="side-card">
-                <h3>Performance Tracking</h3>
-                <form class="metrics-form" id="metricsForm">
-                    <label for="fuelEfficiency">Fuel Efficiency (mpg):</label>
-                    <input type="number" id="fuelEfficiency" name="fuelEfficiency" step="0.1" min="0" placeholder="Enter fuel efficiency">
-                    
-                    <label for="engineHealth">Engine Health (%):</label>
-                    <input type="number" id="engineHealth" name="engineHealth" step="0.1" min="0" max="100" placeholder="Enter engine health">
-                    
-                    <label for="tirePressure">Tire Pressure (psi):</label>
-                    <input type="number" id="tirePressure" name="tirePressure" step="0.1" min="0" placeholder="Enter tire pressure">
-
-                    <button type="button" class="btn" onclick="submitMetrics()">Submit Metrics</button>
-                </form>
-
-                <h4>Submitted Metrics</h4>
-                <ul id="metricsList"></ul>
-            </div>
-            
-
-            
-            <div class="side-card">
-                <h3>View Reports</h3>
-                <a href="view_reports.html" class="btn">View All</a>
-            </div>
-
-            <!-- Planned Maintenance -->
-            <div class="side-card">
-                <h3>Planned Maintenance</h3>
-                <a href="maintenance_planner.html">
-                    <button class="maintenance-planner btn-center">Maintenance Planner</button>
-                </a>
-                <div>
-                    
-                    <br>
-                
-        </div>
-    </div class= "back-button">
-    <a href="home.html">
-        <button class="back btn-right">Back</button>
-    </a>
-</div>
-        
-    </div>
-    
-
-    <script>
-        // will change once we get our databases together
-        function loadVehicleInfo() {
-            var year = localStorage.getItem("vehicleYear");
-            var make = localStorage.getItem("vehicleMake");
-            var model = localStorage.getItem("vehicleModel");
-
-            if (year && make && model) {
-                document.getElementById("vehicleDetails").innerHTML = 
-                    "Vehicle Year: " + year + "<br>" +
-                    "Vehicle Make: " + make + "<br>" +
-                    "Vehicle Model: " + model;
-            } else {
-                document.getElementById("vehicleDetails").innerHTML = "No vehicle information available.";
-            }
-        }
-
-        // submit & display the metrics
-        function submitMetrics() {
-            const fuelEfficiency = document.getElementById('fuelEfficiency').value;
-            const engineHealth = document.getElementById('engineHealth').value;
-            const tirePressure = document.getElementById('tirePressure').value;
-
-            if (fuelEfficiency && engineHealth && tirePressure) {
-                const metrics = {
-                    fuelEfficiency,
-                    engineHealth,
-                    tirePressure
-                };
-
-                
-                const storedMetrics = JSON.parse(localStorage.getItem('vehicleMetrics')) || [];
-                storedMetrics.push(metrics);
-                localStorage.setItem('vehicleMetrics', JSON.stringify(storedMetrics));
-
-                displayMetrics();
-            } else {
-                alert("Please fill in all the fields.");
-            }
         }
  
-        
-        function displayMetrics() {
-            const metricsList = document.getElementById('metricsList');
-            const storedMetrics = JSON.parse(localStorage.getItem('vehicleMetrics')) || [];
-            metricsList.innerHTML = '';
+        .dashboard-container {
 
-            if (storedMetrics.length > 0) {
-                storedMetrics.forEach((metric, index) => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = `Entry ${index + 1}: Fuel Efficiency: ${metric.fuelEfficiency} mpg, Engine Health: ${metric.engineHealth}%, Tire Pressure: ${metric.tirePressure} psi`;
-                    metricsList.appendChild(listItem);
-                });
+            display: flex;
+
+            justify-content: space-between;
+
+        }
+ 
+        .summary-container {
+
+            background-color: #eaecef;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            width: 60%;
+
+            box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
+
+        }
+ 
+        .side-container {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+            width: 35%;
+
+        }
+ 
+        .side-card {
+
+            background-color: #eaecef;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
+
+            text-align: center;
+
+        }
+ 
+        h2, h3 {
+
+            font-size: 1.8em;
+
+            margin-bottom: 20px;
+
+        }
+ 
+        h3 {
+
+            font-size: 1.2em;
+
+            margin-bottom: 10px;
+
+            color: #333;
+
+        }
+ 
+        .vehicle-info {
+
+            font-size: 1.2em;
+
+            margin-bottom: 20px;
+
+        }
+ 
+        .service-list {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 0;
+
+        }
+ 
+        .service-list li {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 10px 0;
+
+            border-bottom: 1px solid #ccc;
+
+        }
+ 
+        .count {
+
+            font-weight: bold;
+
+        }
+ 
+        .btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            background-color: #fdfd38;
+
+            color: black;
+
+            padding: 10px 15px;
+
+            border-radius: 5px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: background-color 0.3s;
+
+            cursor: pointer;
+
+            margin-top: 20px;
+
+        }
+ 
+        .btn:hover {
+
+            background-color: #d7d718;
+
+        }
+ 
+        .btn-right {
+
+            float: right;
+
+        }
+ 
+        .maintenance-planner {
+
+            background-color: #fdfd38;
+
+            padding: 10px 15px;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            text-align: center;
+
+            cursor: pointer;
+
+        }
+ 
+        .maintenance-planner:hover {
+
+            background-color: #d7d718;
+
+        }
+ 
+        .metrics-form label {
+
+            font-weight: bold;
+
+            display: block;
+
+            margin-bottom: 5px;
+
+        }
+ 
+        .metrics-form input {
+
+            width: 100%;
+
+            padding: 10px;
+
+            margin-bottom: 10px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+        }
+ 
+        ul {
+
+            list-style-type: none;
+
+            padding-left: 0;
+
+        }
+ 
+        li {
+
+            margin-bottom: 10px;
+
+        }
+ 
+        .metrics-display {
+
+            margin-top: 20px;
+
+            background-color: #f9f9f9;
+
+            padding: 15px;
+
+            border-radius: 5px;
+
+        }
+</style>
+</head>
+<body>
+ 
+    <div class="dashboard-container">
+ 
+        <!-- Vehicle Summary  -->
+<div class="summary-container">
+<h2>Vehicle Summary</h2>
+<div class="vehicle-info">
+<p id="vehicleDetails"></p>
+</div>
+<ul class="service-list">
+<li>Engine</li>
+<li>Drive</li>
+<li>Transmission</li>
+<li>Fill</li>
+<li>Fill</li>
+<li>Fill</li>
+</ul>
+<div class="metrics-display">
+<h3>Submitted Metrics</h3>
+<ul id="metricsList"></ul>
+</div>
+</div>
+<div class="side-container">
+<div class="side-card">
+<h3>Performance Tracking</h3>
+<form class="metrics-form" id="metricsForm">
+<label for="fuelEfficiency">Fuel Efficiency (mpg):</label>
+<input type="number" id="fuelEfficiency" name="fuelEfficiency" step="0.1" min="0" placeholder="Enter fuel efficiency">
+<label for="engineHealth">Engine Health (%):</label>
+<input type="number" id="engineHealth" name="engineHealth" step="0.1" min="0" max="100" placeholder="Enter engine health">
+<label for="tirePressure">Tire Pressure (psi):</label>
+<input type="number" id="tirePressure" name="tirePressure" step="0.1" min="0" placeholder="Enter tire pressure">
+ 
+                    <button type="button" class="btn" onclick="submitMetrics()">Submit Metrics</button>
+</form>
+</div>
+<div class="side-card">
+<h3>View Reports</h3>
+<a href="view_reports.html" class="btn">View All</a>
+</div>
+ 
+            <!-- Planned Maintenance -->
+<div class="side-card">
+<h3>Planned Maintenance</h3>
+<a href="maintenance_planner.html">
+<button class="maintenance-planner btn-center">Maintenance Planner</button>
+</a>
+</div>
+</div>
+ 
+        <div class="back-button">
+<a href="home.html">
+<button class="back btn-right">Back</button>
+</a>
+</div>
+</div>
+ 
+    <script>
+
+        // will change once we get our databases together
+
+        function loadVehicleInfo() {
+
+            var year = localStorage.getItem("vehicleYear");
+
+            var make = localStorage.getItem("vehicleMake");
+
+            var model = localStorage.getItem("vehicleModel");
+ 
+            if (year && make && model) {
+
+                document.getElementById("vehicleDetails").innerHTML = 
+
+                    "Vehicle Year: " + year + "<br>" +
+
+                    "Vehicle Make: " + make + "<br>" +
+
+                    "Vehicle Model: " + model;
+
             } else {
-                metricsList.innerHTML = 'No metrics submitted.';
+
+                document.getElementById("vehicleDetails").innerHTML = "No vehicle information available.";
+
             }
+
+        }
+ 
+        // submit & display the metrics
+
+        function submitMetrics() {
+
+            const fuelEfficiency = document.getElementById('fuelEfficiency').value;
+
+            const engineHealth = document.getElementById('engineHealth').value;
+
+            const tirePressure = document.getElementById('tirePressure').value;
+ 
+            if (fuelEfficiency && engineHealth && tirePressure) {
+
+                const metrics = {
+
+                    fuelEfficiency,
+
+                    engineHealth,
+
+                    tirePressure
+
+                };
+ 
+                
+
+                const storedMetrics = JSON.parse(localStorage.getItem('vehicleMetrics')) || [];
+
+                storedMetrics.push(metrics);
+
+                localStorage.setItem('vehicleMetrics', JSON.stringify(storedMetrics));
+ 
+                displayMetrics();
+
+            } else {
+
+                alert("Please fill in all the fields.");
+
+            }
+
         }
 
-        // Load vehicle info and metrics on page
-        window.onload = function() {
-            loadVehicleInfo();
-            displayMetrics();
-        };
-    </script>
 
+        function displayMetrics() {
+
+            const metricsList = document.getElementById('metricsList');
+
+            const storedMetrics = JSON.parse(localStorage.getItem('vehicleMetrics')) || [];
+
+            metricsList.innerHTML = '';
+ 
+            if (storedMetrics.length > 0) {
+
+                storedMetrics.forEach((metric, index) => {
+
+                    const listItem = document.createElement('li');
+
+                    listItem.textContent = `Entry ${index + 1}: Fuel Efficiency: ${metric.fuelEfficiency} mpg, Engine Health: ${metric.engineHealth}%, Tire Pressure: ${metric.tirePressure} psi`;
+
+                    metricsList.appendChild(listItem);
+
+                });
+
+            } else {
+
+                metricsList.innerHTML = 'No metrics submitted.';
+
+            }
+
+        }
+ 
+        // Load vehicle info and metrics on page
+
+        window.onload = function() {
+
+            loadVehicleInfo();
+
+            displayMetrics();
+
+        };
+</script>
+ 
 </body>
 </html>
+ 
