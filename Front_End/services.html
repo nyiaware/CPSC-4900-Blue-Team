@@ -11,16 +11,6 @@
             margin: 0;
             padding: 20px;
         }
-        .back {
-            background-color: #8ebefd; 
-            color: black;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
         .container {
             background-color: #eaecef;
             padding: 20px;
@@ -34,7 +24,7 @@
             font-size: 1.8em;
             margin-bottom: 20px;
         }
-        label, select {
+        label, select, input {
             font-size: 1.1em;
             display: block;
             margin-bottom: 10px;
@@ -53,116 +43,34 @@
         .button:hover {
             background-color: #6ea2e7;
         }
-        .btn-right {
-            float: right;
-        }
-        h2#serviceHeader {
-            margin-top: 30px;
-        }
-        #instructions {
-            text-align: left;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Service Selection</h2>
+        <h2>Add Service Information</h2>
+        
+        <form action="add_services.php" method="POST">
+            <!-- Dropdown to select the service -->
+            <label for="serviceSelect">Select a Service:</label>
+            <select id="serviceSelect" name="service_name">
+                <option value="">--Select Service--</option>
+                <!-- Populate this dynamically or manually list services -->
+                <option value="Oil Change">Oil Change</option>
+                <option value="Tire Rotation">Tire Rotation</option>
+                <option value="Battery Replacement">Battery Replacement</option>
+            </select>
+            
+            <!-- Input fields for part information -->
+            <label for="part_name">Part Name:</label>
+            <input type="text" id="part_name" name="part_name" required>
 
-        <!-- Display selected vehicle -->
-        <p id="vehicleDisplay"></p>
+            <label for="part_number">Part Number:</label>
+            <input type="text" id="part_number" name="part_number" required>
 
-        <!-- Service dropdown -->
-        <label for="serviceSelect">Choose a service:</label>
-        <select id="serviceSelect">
-            <option value="">--Select Service--</option>
-        </select>
-
-        <button class="button" onclick="loadServiceInstructions()">Get Instructions</button>
-
-        <!-- Display the service instructions -->
-        <h2 id="serviceHeader"></h2>
-        <div id="instructions"></div>
+            <button type="submit" class="button">Submit Service</button>
+        </form>
     </div>
-    <br>
-    <div class="back-button">
-        <a href="home.html">
-            <button class="back btn-right">Back</button>
-        </a>
-    </div>
-
-    <script>
-    // Load the selected vehicle from localStorage
-    window.onload = function() {
-        var vehicle = localStorage.getItem('selectedVehicle');
-        var vehicleDisplay = document.getElementById('vehicleDisplay');
-        var serviceSelect = document.getElementById('serviceSelect');
-
-        if (vehicle) {
-            vehicleDisplay.textContent = "Selected Vehicle: " + vehicle;
-
-            // Populate the service dropdown based on the selected vehicle (excluding the year)
-            var services = [];
-
-            // Define available services for all models
-            const serviceList = [
-                'Silverado_oilchange', 'Silverado_tirerotation', 'Silverado_batteryreplacement',
-                'Camaro_oilchange', 'Camaro_tirerotation', 'Camaro_batteryreplacement',
-                'Equinox_oilchange', 'Equinox_tirerotation', 'Equinox_batteryreplacement',
-                'Accord_oilchange', 'Accord_tirerotation', 'Accord_batteryreplacement',
-                'Civic_oilchange', 'Civic_tirerotation', 'Civic_batteryreplacement',
-                'CRV_oilchange', 'CRV_tirerotation', 'CRV_batteryreplacement',
-                'Camry_oilchange', 'Camry_tirerotation', 'Camry_batteryreplacement',
-                'Corolla_oilchange', 'Corolla_tirerotation', 'Corolla_batteryreplacement',
-                'Highlander_oilchange', 'Highlander_tirerotation', 'Highlander_batteryreplacement'
-            ];
-
-            // Filter and populate the service dropdown for the selected vehicle
-            serviceList.forEach(service => {
-                if (vehicle.includes(service.split('_')[0])) {
-                    services.push(service);
-                }
-            });
-
-            // Populate the dropdown with the services
-            services.forEach(service => {
-                var option = document.createElement('option');
-                option.value = service + '.txt';
-                option.textContent = service.replace('_', ' ').replace(/([a-z])([A-Z])/g, '$1 $2');  // Format service names
-                serviceSelect.appendChild(option);
-            });
-
-        } else {
-            vehicleDisplay.textContent = "No vehicle selected.";
-        }
-    }
- 
-    // Load service instructions
-    function loadServiceInstructions() {
-        var serviceFile = document.getElementById('serviceSelect').value;
-        var serviceHeader = document.getElementById('serviceHeader');
-        var instructionsDiv = document.getElementById('instructions');
-
-        if (serviceFile) {
-            fetch(serviceFile)
-                .then(response => response.text())
-                .then(data => {
-                    serviceHeader.textContent = "Step by Step Instructions";
-                    instructionsDiv.textContent = data;
-                })
-                .catch(error => {
-                    instructionsDiv.textContent = "Error loading instructions.";
-                });
-        } else {
-            alert("Please select a service.");
-        }
-    }
-    </script>
 
 </body>
 </html>
