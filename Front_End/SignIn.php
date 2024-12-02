@@ -1,6 +1,6 @@
 <?php
 session_start(); // Ensure session is started at the very top
- 
+
 // Database connection
 $servername = "localhost";
 $username = "root";
@@ -31,6 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['UserID'];
             $_SESSION['username'] = $user['Username'];
             error_log("User ID set in session: " . $_SESSION['user_id']); // Debugging log
+
+            // Set vehicle_id in session (you could select the first vehicle for now or get this from a vehicle selection page)
+            // Assuming you have a list of vehicles that the user can choose from or a default vehicle
+            $_SESSION['vehicle_id'] = 1;  // This is just an example; you can change this based on your logic
 
             header("Location: home.html"); // Redirect to homepage
             exit();
